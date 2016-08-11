@@ -1,11 +1,6 @@
 import os
 import csv
 
-results=[]
-ids1=[]
-ids2=[]
-strings1=[]
-strings2=[]
 i=0;
 with open('MSRParaphraseCorpus/msr_paraphrase_train.txt','r') as f:    
     next(f)

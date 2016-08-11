@@ -1,0 +1,4 @@
+Gtk-Message: Failed to load module "canberra-gtk-module"
+Number of documents: 2
+Number of distinct trigrams: 21
+/splitted_files/1/702876.txt ; /splitted_files/1/702977.txt ; 5 ; 12 ; 14 ; 0.238095
