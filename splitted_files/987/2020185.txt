@@ -1,0 +1,1 @@
+Starting on Aug. 16, every computer infected with MBlast will start flooding Microsoft's Windows Update service with legitimate-looking connection requests.

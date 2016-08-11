@@ -1,0 +1,1 @@
+Microsoft will seek to simplify creation of BizTalk applications by tying it more tightly to its flagship development tool, Visual Studio.Net.

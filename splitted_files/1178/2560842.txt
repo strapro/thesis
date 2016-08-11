@@ -1,0 +1,1 @@
+WinFS will require that applications be rewritten to exploit such capabilities.

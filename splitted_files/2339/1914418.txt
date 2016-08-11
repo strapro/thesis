@@ -1,0 +1,1 @@
+The Communicator can also consolidate e-mail from multiple screen names and other POP and IMAP accounts into a single application.

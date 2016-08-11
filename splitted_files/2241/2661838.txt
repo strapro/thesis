@@ -1,0 +1,1 @@
+A new VPN server built into Panther Server supports Mac OS X, Windows or UNIX clients using PPTP and L2TP tunneling protocols.

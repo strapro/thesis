@@ -1,0 +1,1 @@
+Big Blue will integrate Adobe's Form Server, Form Designer and Reader products with its DB2 Content Manager and DB2 CommonStore products designed for businesses.

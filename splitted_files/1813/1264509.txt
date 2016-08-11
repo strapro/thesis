@@ -1,0 +1,1 @@
+Available July 7, the software supports the Solaris, IBM AIX, Red Hat Linux and Windows operating systems.

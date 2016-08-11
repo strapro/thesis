@@ -1,0 +1,1 @@
+The Intel C++ Compiler for Platform Builder for Microsoft Windows CE.Net is available for $1,499 and is intended for use by device manufacturers and systems integrators.

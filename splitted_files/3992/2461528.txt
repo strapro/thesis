@@ -1,0 +1,1 @@
+Windows XP 64-bit Edition for 64-Bit Extended Systems will support AMD64 technology, running natively on AMD Athlon 64 powered desktops and AMD Opteron processor-powered workstations.

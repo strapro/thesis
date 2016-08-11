@@ -1,0 +1,1 @@
+The vulnerability affects Windows NT 4.0, NT 4.0 Terminal Services Edition, XP and 2000, as well as Windows Server 2003.

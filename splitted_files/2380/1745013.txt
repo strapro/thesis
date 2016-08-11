@@ -1,0 +1,1 @@
+The number of hostnames using BSD is nearing four million, while the number of active sites is nearly two million, Netcraft said.

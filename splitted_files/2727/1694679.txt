@@ -1,0 +1,1 @@
+Within WSE 2.0, WS-Trust, WS-SecureConversation build on WS-Security and define extensions to request and issue security tokens and to manage relationships and secure conversations.

@@ -1,0 +1,1 @@
+SAN Architect and AutoAdvice can be used by themselves or as extensions to the ControlCenter family of storage management applications.

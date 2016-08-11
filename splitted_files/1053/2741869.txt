@@ -1,0 +1,1 @@
+Like the Power4, the Power5 contains two processor cores on one chip.

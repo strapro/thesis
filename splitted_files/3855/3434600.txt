@@ -1,0 +1,1 @@
+MySQL AB on Tuesday announced that it had ported its open-source database to the HP-UX operating system on the 64-bit Intel Itanium 2 processor.

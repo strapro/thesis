@@ -1,0 +1,1 @@
+It also features Nvidia's own PowerMizer power management system.

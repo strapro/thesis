@@ -1,0 +1,1 @@
+The deal will combine Adobe's Form Server, Form Designer and Reader products with IBM's DB2 Content Manager and DB2 CommonStore products.

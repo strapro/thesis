@@ -1,0 +1,1 @@
+First up, Microsoft said a buffer overrun vulnerability occurs because IE does not properly determine an object type returned from a Web server.

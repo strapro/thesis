@@ -1,0 +1,1 @@
+The worm attacks Windows computers via a hole in the operating system, an issue Microsoft on July 16 had warned about.

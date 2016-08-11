@@ -1,0 +1,1 @@
+A command is sent to Mars Express to release Beagle 2 by what is known as a Spin-Up and Eject Mechanism.
