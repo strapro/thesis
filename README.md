@@ -1,7 +1,7 @@
 # Thesis
 
 From the root directory of the project execute the following command to get into the docker container
-
+```
 docker run -it \
 --rm \
 --user $(id -u) \
@@ -17,3 +17,4 @@ docker run -it \
 --volume="$(pwd):/thesis" \
 strapro/thesis \
 bash
+```
