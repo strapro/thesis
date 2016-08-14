@@ -19,6 +19,8 @@ strapro/thesis \
 bash
 ```
 
-The docker container contains a compiled from source executable of the Ferret plagiarism checker tool. The image used can be accessed from [here](https://hub.docker.com/r/strapro/thesis)
+The docker container contains a compiled from source executable of the Ferret plagiarism checker tool.
 
-For more information about the Ferret plagiarism checker tool you can visit [here](https://github.com/petercrlane/ferret)
+For more information about the docker image you can visit [the docker hub page](https://hub.docker.com/r/strapro/thesis)
+
+For more information about the Ferret plagiarism checker tool you can visit [the project's github page](https://github.com/petercrlane/ferret)
