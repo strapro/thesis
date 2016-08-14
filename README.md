@@ -14,8 +14,6 @@ docker run -it \
 --volume="/etc/sudoers.d:/etc/sudoers.d:ro" \
 --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
 --volume="$(pwd)/home:/home/$USER" \
---volume="$(pwd)/scripts:/scripts" \
---volume="$(pwd)/ferret:/ferret" \
---volume="$(pwd)/splitted_files:/splitted_files" \
+--volume="$(pwd):/thesis" \
 strapro/thesis \
 bash

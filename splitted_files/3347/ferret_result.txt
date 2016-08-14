@@ -1,0 +1,3 @@
+Number of documents: 2
+Number of distinct trigrams: 20
+/splitted_files/3347/2341846.txt ; /splitted_files/3347/2341677.txt ; 2 ; 11 ; 11 ; 0.1
