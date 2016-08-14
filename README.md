@@ -1,4 +1,4 @@
-# thesis
+# Thesis
 
 From the root directory of the project execute the following command to get into the docker container
 
