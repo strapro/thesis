@@ -27,7 +27,7 @@ class PreProcessor:
 			filteredTags = tags
 
 		#Keep the simple tag representation
-		simplifiedTags = [(word, nltk.tag.map_tag('en-ptb', 'universal', tag)) for word, tag in filteredTags]
+		simplifiedTags = [(word.decode('utf-8'), nltk.tag.map_tag('en-ptb', 'universal', tag)) for word, tag in filteredTags]
 
 		#Keep only certain parts of speech	
 		simplifiedSubSetTags = [(word, tag) for word, tag in simplifiedTags if tag in self.__settings['permitted_tags'] ]
@@ -38,7 +38,7 @@ class PreProcessor:
 
 		#At this step we should consider whether a reordering should happen. This place would be good for a simple alphanumeric sorting
 		if self.__settings['perform_ordering']:
-			sortedLemmatizedSubSetTags = [(str(word.lower()), tag) for word, tag in lemmatizedSubSetTags]
+			sortedLemmatizedSubSetTags = [(word.lower(), tag) for word, tag in lemmatizedSubSetTags]
 			sortedLemmatizedSubSetTags = list(set(sortedLemmatizedSubSetTags)) #TODO whether only the unique words should be kept should also be a setting
 			sortedLemmatizedSubSetTags.sort(key=lambda tup: tup[0])
 

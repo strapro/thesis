@@ -35,11 +35,28 @@ os.makedirs(parsedDirectoryName)
 pre = pre_processing.PreProcessor(settings)
 
 for directory in next(os.walk('splitted_files'))[1]:
+	print directory
 	files = next(os.walk('splitted_files/'+directory))[2]
-	with open('splitted_files/'+directory+'/'+files[0], 'r') as myfile:
-		firstSentence = myfile.read().replace('\n', '')
-	with open('splitted_files/'+directory+'/'+files[1], 'r') as myfile:
-		secondSentence = myfile.read().replace('\n', '')
+	firstSentence = False
+	secondSentence = False
+	fileName1 = 'undefined1'
+	fileName2 = 'undefined2'
+	if files[0] != "ferret_result.txt":
+		fileName1 = files[0]
+		with open('splitted_files/'+directory+'/'+files[0], 'r') as myfile:
+			firstSentence = myfile.read().replace('\n', '')
+	if files[1] != "ferret_result.txt":
+		fileName2 = files[1]
+		with open('splitted_files/'+directory+'/'+files[1], 'r') as myfile:
+			secondSentence = myfile.read().replace('\n', '')
+	if firstSentence == False:
+		fileName1 = files[2]
+		with open('splitted_files/' + directory + '/' + files[2], 'r') as myfile:
+			firstSentence = myfile.read().replace('\n', '')
+	if secondSentence == False:
+		fileName2 = files[2]
+		with open('splitted_files/' + directory + '/' + files[2], 'r') as myfile:
+			secondSentence = myfile.read().replace('\n', '')
 
 	finalWordsFirstSentence = pre.get_words_for_sentence(firstSentence)
 	finalWordsSecondSentence = pre.get_words_for_sentence(secondSentence)
@@ -54,12 +71,12 @@ for directory in next(os.walk('splitted_files'))[1]:
 
 	os.makedirs(parsedDirectoryName+'/'+directory)
 
-	target1 = open(parsedDirectoryName+'/'+directory+'/'+files[0], 'w')
+	target1 = open(parsedDirectoryName+'/'+directory+'/'+fileName1, 'w')
 	target1.truncate()
-	target1.write(" ".join(word for word, pos in finalWordsFirstSentence))
+	target1.write(" ".join(word.encode('utf8') for word, pos in finalWordsFirstSentence))
 	target1.close()
 
-	target2 = open(parsedDirectoryName+'/'+directory+'/'+files[1], 'w')
+	target2 = open(parsedDirectoryName+'/'+directory+'/'+fileName2, 'w')
 	target2.truncate()
-	target2.write(" ".join(word for word, pos in finalWordsSecondSentence))
+	target2.write(" ".join(word.encode('utf8') for word, pos in finalWordsSecondSentence))
 	target2.close()    

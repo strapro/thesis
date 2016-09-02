@@ -1,3 +1,3 @@
 Number of documents: 2
-Number of distinct trigrams: 30
-/splitted_files/1484/440568.txt ; /splitted_files/1484/440402.txt ; 5 ; 20 ; 15 ; 0.166667
+Number of distinct trigrams: 20
+splitted_files/1484/440568.txt ; splitted_files/1484/ferret_result.txt ; 0 ; 20 ; 0 ; 0
