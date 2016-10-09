@@ -1,0 +1,74 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import pygtk
+import gtk
+import gtk.glade
+
+pygtk.require("2.0")
+
+
+class PreProcessGTK:
+
+	def __init__(self):
+		self.gladefile = "pre_process_gtk2.glade"
+		self.glade = gtk.Builder()
+		self.glade.add_from_file(self.gladefile)
+		self.glade.connect_signals(self)
+
+		self.main_window = self.glade.get_object("mainWindow")
+		self.chooser_window = self.glade.get_object("chooserWindow")
+		self.process_settings_window = self.glade.get_object("processSettingsWindow")
+
+		self.main_window.show_all()
+
+	# mainWindow========================================================================================================
+
+	def on_btnSplitCorpus_click_event(self, event):
+		parent = None
+		md = gtk.MessageDialog(parent,
+							   gtk.DIALOG_DESTROY_WITH_PARENT, gtk.MESSAGE_INFO,
+							   gtk.BUTTONS_CLOSE, "Split corpus")
+		md.run()
+
+	def on_btnCalculateAccuracyDialog_click_event(self, event):
+		self.chooser_window.show_all()
+
+	def on_btnProcessCorpusDialog_click_event(self, event):
+		self.process_settings_window.show_all()
+
+	def on_mainWindow_delete_event(self, widget, event):
+		gtk.main_quit()
+
+	# chooserWindow=====================================================================================================
+
+	def on_btnCalculateAccuracy_click_event(self, event):
+		parent = None
+		md = gtk.MessageDialog(parent,
+							   gtk.DIALOG_DESTROY_WITH_PARENT, gtk.MESSAGE_INFO,
+							   gtk.BUTTONS_CLOSE, "Calculate accuracy")
+		md.run()
+
+	def on_chooserWindow_delete_event(self, widget, event):
+		self.chooser_window.hide()
+		return True
+
+	# processSettingsWindow=============================================================================================
+
+	def on_btnProcessCorpus_click_event(self, event):
+		parent = None
+		md = gtk.MessageDialog(parent,
+							   gtk.DIALOG_DESTROY_WITH_PARENT, gtk.MESSAGE_INFO,
+							   gtk.BUTTONS_CLOSE, "Process corpus")
+		md.run()
+
+	def on_processSettingsWindow_delete_event(self, widget, event):
+		self.process_settings_window.hide()
+		return True
+
+if __name__ == "__main__":
+	try:
+		a = PreProcessGTK()
+		gtk.main()
+	except KeyboardInterrupt:
+		pass

@@ -1,0 +1,717 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.18.3 -->
+<interface>
+  <requires lib="gtk+" version="3.10"/>
+  <object class="GtkListStore" id="liststore1">
+    <columns>
+      <!-- column-name Date -->
+      <column type="gchararray"/>
+      <!-- column-name Remove -->
+      <column type="gchararray"/>
+      <!-- column-name Permitted -->
+      <column type="gchararray"/>
+      <!-- column-name Ordering -->
+      <column type="gchararray"/>
+      <!-- column-name Use -->
+      <column type="gchararray"/>
+      <!-- column-name Similarity -->
+      <column type="gchararray"/>
+      <!-- column-name Similarity1 -->
+      <column type="gchararray"/>
+      <!-- column-name Type -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">20/9/2016 13:10:12</col>
+        <col id="1" translatable="yes">Yes</col>
+        <col id="2" translatable="yes">NOUN, VERB, ADV, PRON</col>
+        <col id="3" translatable="yes">Alphanumeric</col>
+        <col id="4" translatable="yes">Yes</col>
+        <col id="5" translatable="yes">wup</col>
+        <col id="6" translatable="yes">0.5</col>
+        <col id="7" translatable="yes">Random</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">19/9/2016 12:14:51</col>
+        <col id="1" translatable="yes">No</col>
+        <col id="2" translatable="yes">NOUN, VERB, ADV, ADJ, PRON</col>
+        <col id="3" translatable="yes">Alphanumeric</col>
+        <col id="4" translatable="yes">Yes</col>
+        <col id="5" translatable="yes">wup</col>
+        <col id="6" translatable="yes">0.4</col>
+        <col id="7" translatable="yes">Random</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes"/>
+        <col id="1" translatable="yes"/>
+        <col id="2" translatable="yes"/>
+        <col id="3" translatable="yes"/>
+        <col id="4" translatable="yes"/>
+        <col id="5" translatable="yes"/>
+        <col id="6" translatable="yes"/>
+        <col id="7" translatable="yes"/>
+      </row>
+      <row>
+        <col id="0" translatable="yes"/>
+        <col id="1" translatable="yes"/>
+        <col id="2" translatable="yes"/>
+        <col id="3" translatable="yes"/>
+        <col id="4" translatable="yes"/>
+        <col id="5" translatable="yes"/>
+        <col id="6" translatable="yes"/>
+        <col id="7" translatable="yes"/>
+      </row>
+      <row>
+        <col id="0" translatable="yes"/>
+        <col id="1" translatable="yes"/>
+        <col id="2" translatable="yes"/>
+        <col id="3" translatable="yes"/>
+        <col id="4" translatable="yes"/>
+        <col id="5" translatable="yes"/>
+        <col id="6" translatable="yes"/>
+        <col id="7" translatable="yes"/>
+      </row>
+      <row>
+        <col id="0" translatable="yes"/>
+        <col id="1" translatable="yes"/>
+        <col id="2" translatable="yes"/>
+        <col id="3" translatable="yes"/>
+        <col id="4" translatable="yes"/>
+        <col id="5" translatable="yes"/>
+        <col id="6" translatable="yes"/>
+        <col id="7" translatable="yes"/>
+      </row>
+      <row>
+        <col id="0" translatable="yes"/>
+        <col id="1" translatable="yes"/>
+        <col id="2" translatable="yes"/>
+        <col id="3" translatable="yes"/>
+        <col id="4" translatable="yes"/>
+        <col id="5" translatable="yes"/>
+        <col id="6" translatable="yes"/>
+        <col id="7" translatable="yes"/>
+      </row>
+      <row>
+        <col id="0" translatable="yes"/>
+        <col id="1" translatable="yes"/>
+        <col id="2" translatable="yes"/>
+        <col id="3" translatable="yes"/>
+        <col id="4" translatable="yes"/>
+        <col id="5" translatable="yes"/>
+        <col id="6" translatable="yes"/>
+        <col id="7" translatable="yes"/>
+      </row>
+      <row>
+        <col id="0" translatable="yes"/>
+        <col id="1" translatable="yes"/>
+        <col id="2" translatable="yes"/>
+        <col id="3" translatable="yes"/>
+        <col id="4" translatable="yes"/>
+        <col id="5" translatable="yes"/>
+        <col id="6" translatable="yes"/>
+        <col id="7" translatable="yes"/>
+      </row>
+    </data>
+  </object>
+  <object class="GtkWindow" id="chooserWindow">
+    <property name="can_focus">False</property>
+    <child>
+      <object class="GtkGrid" id="grid3">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="margin_left">20</property>
+        <property name="margin_right">20</property>
+        <property name="margin_top">20</property>
+        <property name="margin_bottom">20</property>
+        <property name="row_spacing">10</property>
+        <property name="column_spacing">10</property>
+        <child>
+          <object class="GtkGrid" id="grid4">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="halign">end</property>
+            <property name="margin_top">10</property>
+            <property name="row_spacing">10</property>
+            <property name="column_spacing">10</property>
+            <child>
+              <object class="GtkLabel" id="label9">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="halign">end</property>
+                <property name="valign">baseline</property>
+                <property name="label" translatable="yes">Threshold</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entry2">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="Calculate">
+                <property name="label" translatable="yes">Calculate accuracy</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="relief">half</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">1</property>
+              </packing>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkScrolledWindow" id="scrolledwindow2">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="shadow_type">in</property>
+            <property name="min_content_width">1000</property>
+            <property name="min_content_height">180</property>
+            <child>
+              <object class="GtkTreeView" id="treeview1">
+                <property name="height_request">200</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="margin_top">4</property>
+                <property name="model">liststore1</property>
+                <property name="reorderable">True</property>
+                <property name="enable_search">False</property>
+                <property name="search_column">0</property>
+                <property name="show_expanders">False</property>
+                <property name="enable_grid_lines">both</property>
+                <property name="tooltip_column">1</property>
+                <child internal-child="selection">
+                  <object class="GtkTreeSelection" id="treeview-selection">
+                    <property name="mode">multiple</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="treeviewcolumn1">
+                    <property name="spacing">5</property>
+                    <property name="title" translatable="yes">Date</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellrenderertext1"/>
+                      <attributes>
+                        <attribute name="text">0</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="treeviewcolumn2">
+                    <property name="spacing">5</property>
+                    <property name="title" translatable="yes">Remove stop words</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellrenderertext2"/>
+                      <attributes>
+                        <attribute name="text">1</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="treeviewcolumn3">
+                    <property name="spacing">5</property>
+                    <property name="title" translatable="yes">Permitted parts of speech</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellrenderertext3"/>
+                      <attributes>
+                        <attribute name="text">2</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="treeviewcolumn4">
+                    <property name="spacing">5</property>
+                    <property name="title" translatable="yes">Ordering type</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellrenderertext4"/>
+                      <attributes>
+                        <attribute name="text">3</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="treeviewcolumn5">
+                    <property name="spacing">5</property>
+                    <property name="title" translatable="yes">Use word sense</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellrenderertext5"/>
+                      <attributes>
+                        <attribute name="text">4</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="treeviewcolumn6">
+                    <property name="spacing">5</property>
+                    <property name="title" translatable="yes">Similarity measure</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellrenderertext6"/>
+                      <attributes>
+                        <attribute name="text">5</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="treeviewcolumn7">
+                    <property name="spacing">5</property>
+                    <property name="title" translatable="yes">Similarity threshold</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellrenderertext7"/>
+                      <attributes>
+                        <attribute name="text">6</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="treeviewcolumn8">
+                    <property name="spacing">5</property>
+                    <property name="title" translatable="yes">Type of replacement</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellrenderertext8"/>
+                      <attributes>
+                        <attribute name="text">7</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">0</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkApplicationWindow" id="mainWindow">
+    <property name="can_focus">False</property>
+    <property name="resizable">False</property>
+    <child>
+      <object class="GtkGrid" id="grid1">
+        <property name="name">20</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="margin_left">20</property>
+        <property name="margin_right">20</property>
+        <property name="margin_top">20</property>
+        <property name="margin_bottom">20</property>
+        <child>
+          <object class="GtkImage" id="image1">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="pixbuf">Ferret_icon.png</property>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="top_attach">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="box1">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_right">20</property>
+            <property name="orientation">vertical</property>
+            <property name="spacing">10</property>
+            <child>
+              <object class="GtkButton" id="button1">
+                <property name="label" translatable="yes">Split Corpus</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="xalign">0.49000000953674316</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="button2">
+                <property name="label" translatable="yes">Process Corpus</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="button3">
+                <property name="label" translatable="yes">Calculate Accuracy</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label1">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="halign">center</property>
+                <property name="valign">end</property>
+                <property name="label" translatable="yes">Created by
+Efstratios Provatopoulos</property>
+                <property name="justify">center</property>
+                <attributes>
+                  <attribute name="gravity" value="south"/>
+                </attributes>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">3</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">0</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkWindow" id="settingWindow">
+    <property name="can_focus">False</property>
+    <property name="resizable">False</property>
+    <child>
+      <object class="GtkGrid" id="grid2">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="margin_left">20</property>
+        <property name="margin_right">20</property>
+        <property name="margin_top">20</property>
+        <property name="margin_bottom">20</property>
+        <property name="row_spacing">10</property>
+        <property name="column_spacing">10</property>
+        <child>
+          <object class="GtkLabel" id="label2">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="halign">end</property>
+            <property name="valign">baseline</property>
+            <property name="label" translatable="yes">Remove stop words</property>
+            <property name="justify">right</property>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label3">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="halign">end</property>
+            <property name="valign">start</property>
+            <property name="margin_top">2</property>
+            <property name="label" translatable="yes">Permitted parts of speech</property>
+            <property name="justify">right</property>
+            <property name="ellipsize">start</property>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label4">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="halign">end</property>
+            <property name="valign">baseline</property>
+            <property name="label" translatable="yes">Ordering type</property>
+            <property name="justify">right</property>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label5">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="halign">end</property>
+            <property name="valign">baseline</property>
+            <property name="label" translatable="yes">Use word sense</property>
+            <property name="justify">right</property>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">3</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label6">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="halign">end</property>
+            <property name="valign">baseline</property>
+            <property name="label" translatable="yes">Similarity measure</property>
+            <property name="justify">right</property>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">4</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label7">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="halign">end</property>
+            <property name="valign">baseline</property>
+            <property name="label" translatable="yes">Similarity threshold</property>
+            <property name="justify">right</property>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">5</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label8">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="halign">end</property>
+            <property name="valign">baseline</property>
+            <property name="label" translatable="yes">Type of replacement</property>
+            <property name="justify">right</property>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">6</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="checkbutton1">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="xalign">0</property>
+            <property name="draw_indicator">True</property>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="top_attach">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="box2">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkCheckButton" id="checkbutton2">
+                <property name="label" translatable="yes">NOUN</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="xalign">0</property>
+                <property name="draw_indicator">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkCheckButton" id="checkbutton3">
+                <property name="label" translatable="yes">VERB</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="xalign">0</property>
+                <property name="draw_indicator">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkCheckButton" id="checkbutton4">
+                <property name="label" translatable="yes">ADV</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="xalign">0</property>
+                <property name="draw_indicator">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkCheckButton" id="checkbutton5">
+                <property name="label" translatable="yes">ADJ</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="xalign">0</property>
+                <property name="draw_indicator">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">3</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkCheckButton" id="checkbutton6">
+                <property name="label" translatable="yes">PRON</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="xalign">0</property>
+                <property name="draw_indicator">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">4</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="top_attach">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="checkbutton7">
+            <property name="label" translatable="yes"> </property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="xalign">0</property>
+            <property name="draw_indicator">True</property>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="top_attach">3</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="entry1">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="top_attach">5</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="button4">
+            <property name="label" translatable="yes">Process</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="top_attach">7</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkComboBoxText" id="comboboxtext2">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="active">0</property>
+            <items>
+              <item translatable="yes">wup</item>
+              <item translatable="yes">jcn</item>
+              <item translatable="yes">lin</item>
+              <item translatable="yes">res</item>
+              <item translatable="yes">lch</item>
+              <item translatable="yes">path</item>
+              <item id="&lt;Enter ID&gt;" translatable="yes">wup</item>
+            </items>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="top_attach">4</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkComboBoxText" id="comboboxtext3">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="active">0</property>
+            <items>
+              <item translatable="yes">random</item>
+              <item id="&lt;Enter ID&gt;" translatable="yes">keep_unique</item>
+              <item translatable="yes">keep_other</item>
+            </items>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="top_attach">6</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkComboBoxText" id="comboboxtext1">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="active">0</property>
+            <items>
+              <item translatable="yes">Alphanumeric</item>
+              <item translatable="yes">Grammatical</item>
+            </items>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="top_attach">2</property>
+          </packing>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

@@ -3,6 +3,7 @@ import random
 import itertools
 import nltk
 
+
 class PreProcessor:
 
 	__settings = {}
@@ -10,7 +11,8 @@ class PreProcessor:
 	def __init__(self, settings):
 		self.__settings = settings
 
-	#This function returns a subset of the original words of the sentence accompanied by the corresponding part of speech tag
+	# This function returns a subset of the original words of the sentence
+	# accompanied by the corresponding part of speech tag
 	def get_words_for_sentence(self, sentence):
 		#Tokenize the text
 		tokenizedText = nltk.word_tokenize(sentence)
@@ -46,13 +48,14 @@ class PreProcessor:
 		else:
 			return lemmatizedSubSetTags	
 
-	#This function returns the words that are present in one sentence but not in the other
+	# This function returns the words that are present in one sentence but not in the other
 	def get_unique_words(self, tagsPerSentence1, tagsPerSentence2):
 		uniqueWordsPerSentence = list(set(tagsPerSentence1) - set(tagsPerSentence2))
 		
 		return uniqueWordsPerSentence
 	
-	#This function return the similarity between the unique words of one sentence and all the words of the other sentence. Only the maximum similarity for each pair will be returned
+	# This function return the similarity between the unique words of one sentence and
+	# all the words of the other sentence. Only the maximum similarity for each pair will be returned
 	def get_similarities(self, uniqueWords, uniqueWordsSentence, allWords, allWordsSentence):
 		maxSimilarities = []
 		for word1, tag1 in uniqueWords:
@@ -78,8 +81,8 @@ class PreProcessor:
 
 		return maxSimilarities
 
-	#This function returns the words after the necessary replacements have taken place
-	def get_words_after_replacements(self, maxSimilarities, uniqueWordsFinalWordsSentence, allWordsFinalWordsSentence):
+	# This function returns the words after the necessary replacements have taken place
+	def get_words_after_replacements(self, maxSiyilarities, uniqueWordsFinalWordsSentence, allWordsFinalWordsSentence):
 		for uniqueWord, word, similarity, uniqueWordSynset, wordSynset in maxSimilarities:
 			if similarity > self.__settings['similaty_threshold']:
 				replacement = self.__get_replacement_word(uniqueWord, word, uniqueWordSynset, wordSynset)
@@ -92,20 +95,20 @@ class PreProcessor:
 
 		return (uniqueWordsFinalWordsSentence, allWordsFinalWordsSentence)
 
-	#========================================================================================================================================
+	# ==================================================================================================================
 
-	#This function maps the simple tags to the relevant wordnet part of speech tag, in order to use the lemmatiser
+	# This function maps the simple tags to the relevant wordnet part of speech tag, in order to use the lemmatiser
 	def __get_wordnet_pos(self, tag):
-	    if tag.startswith('V'):
-	        return nltk.corpus.wordnet.VERB
-	    elif tag.startswith('N'):
-	        return nltk.corpus.wordnet.NOUN
-	    elif tag.startswith('ADV'):
-	        return nltk.corpus.wordnet.ADV
-	    else:
-	        return nltk.corpus.wordnet.NOUN
+		if tag.startswith('V'):
+			return nltk.corpus.wordnet.VERB
+		elif tag.startswith('N'):
+			return nltk.corpus.wordnet.NOUN
+		elif tag.startswith('ADV'):
+			return nltk.corpus.wordnet.ADV
+		else:
+			return nltk.corpus.wordnet.NOUN
 
-	#This function returns all the synsets for a word that are the same part of speech as that tag
+	# This function returns all the synsets for a word that are the same part of speech as that tag
 	def __get_synset(self, sentence, word, tag):
 		#At this step we should consider whether word sense disambiguation should take place
 		if self.__settings["use_word_sense"]:
@@ -115,7 +118,7 @@ class PreProcessor:
 
 		return syns
 
-	#This function returns the similarity betweeen twn senses
+	# This function returns the similarity betweeen twn senses
 	def __get_similarity(self, sense1, sense2):
 		#Possible values are "jcn", "lin", "res", "lch", "path", "wup"
 		if self.__settings["similarity_measure"] == 'jcn':
@@ -134,7 +137,7 @@ class PreProcessor:
 		return d
 
 	def __get_replacement_word(self, uniqueWord, word, uniqueWordSynset, wordSynset):
-		#Possible values are "random", "keep_unique", "keep_other" TODO use something more sophisticated like common hypernym
+		# Possible values are "random", "keep_unique", "keep_other" TODO use something more sophisticated like common hypernym
 		if self.__settings["type_of_replacement"] == 'random':
 			replacement = ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(10))
 		elif self.__settings["type_of_replacement"] == 'keep_unique':
@@ -144,7 +147,7 @@ class PreProcessor:
 
 		return replacement
 
-	#This function replaces all occurences of a word in a list of tuples
+	# This function replaces all occurrences of a word in a list of tuples
 	def __replace_word(self, oldWord, newWord, listOfWords):
 		out = [(newWord, tpl[1]) if tpl[0] == oldWord else tpl for tpl in listOfWords]
 		
