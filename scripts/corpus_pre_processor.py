@@ -1,9 +1,9 @@
 import os
-import shutil
 import string
 import random
 import itertools
 import nltk
+import shutil
 
 
 class PreProcessor:
@@ -189,17 +189,7 @@ class PreProcessor:
 		return out
 
 
-def pre_process_corpus(settings):
-	parsed_directory_name_parts = []
-	for key, value in settings.iteritems():
-		if type(value) == list:
-			value_string = "".join(str(item) for item in value)
-		else:
-			value_string = str(value)
-		parsed_directory_name_parts.append(key+"="+value_string)
-
-	parsed_directory_name = "splitted_parsed_files/"+"_".join(str(part) for part in parsed_directory_name_parts)
-
+def pre_process_corpus(settings, parsed_directory_name):
 	if os.path.exists(parsed_directory_name):
 		shutil.rmtree(parsed_directory_name, ignore_errors=True)
 

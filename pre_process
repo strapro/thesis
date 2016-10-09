@@ -26,10 +26,15 @@ class PreProcessGTK:
 
 	def on_btnSplitCorpus_click_event(self, event):
 		parent = None
-		md = gtk.MessageDialog(parent,
-							   gtk.DIALOG_DESTROY_WITH_PARENT, gtk.MESSAGE_INFO,
-							   gtk.BUTTONS_CLOSE, "Split corpus")
+		md = gtk.MessageDialog(
+			parent,
+			gtk.DIALOG_DESTROY_WITH_PARENT,
+			gtk.MESSAGE_INFO,
+			gtk.BUTTONS_CLOSE,
+			"Split corpus"
+		)
 		md.run()
+		# split_corpus()
 
 	def on_btnCalculateAccuracyDialog_click_event(self, event):
 		self.chooser_window.show_all()
@@ -44,10 +49,19 @@ class PreProcessGTK:
 
 	def on_btnCalculateAccuracy_click_event(self, event):
 		parent = None
-		md = gtk.MessageDialog(parent,
-							   gtk.DIALOG_DESTROY_WITH_PARENT, gtk.MESSAGE_INFO,
-							   gtk.BUTTONS_CLOSE, "Calculate accuracy")
+		md = gtk.MessageDialog(
+			parent,
+			gtk.DIALOG_DESTROY_WITH_PARENT,
+			gtk.MESSAGE_INFO,
+			gtk.BUTTONS_CLOSE,
+			"Calculate accuracy"
+		)
 		md.run()
+
+		# settings TODO calculate this from the selected row
+		# target_directory = settings_to_directory(settings)
+		# generate_result(target_directory, threshold)
+		# calculate_accuracy(target_directory)
 
 	def on_chooserWindow_delete_event(self, widget, event):
 		self.chooser_window.hide()
@@ -57,10 +71,19 @@ class PreProcessGTK:
 
 	def on_btnProcessCorpus_click_event(self, event):
 		parent = None
-		md = gtk.MessageDialog(parent,
-							   gtk.DIALOG_DESTROY_WITH_PARENT, gtk.MESSAGE_INFO,
-							   gtk.BUTTONS_CLOSE, "Process corpus")
+		md = gtk.MessageDialog(
+			parent,
+			gtk.DIALOG_DESTROY_WITH_PARENT,
+			gtk.MESSAGE_INFO,
+			gtk.BUTTONS_CLOSE,
+			"Process corpus"
+		)
 		md.run()
+
+		# settings
+		# target_directory = settings_to_directory(settings)
+		# pre_process_corpus(settings, target_directory)
+		# check_ferret(target_directory)
 
 	def on_processSettingsWindow_delete_event(self, widget, event):
 		self.process_settings_window.hide()
