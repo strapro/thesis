@@ -1,7 +1,7 @@
 import os
 
 
-def check_ferret(target_directory):
+def execute_ferret(target_directory):
     command = 'ferret/src/ferret'
 
     for directory in next(os.walk(target_directory))[1]:
