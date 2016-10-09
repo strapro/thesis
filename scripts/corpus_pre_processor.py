@@ -178,13 +178,13 @@ class PreProcessor:
 		elif self.__settings["type_of_replacement"] == 'keep_other':
 			replacement = word
 		else:
-			raise Exception('Unknown replacment type')
+			raise Exception('Unknown replacement type')
 
 		return replacement
 
 	# This function replaces all occurrences of a word in a list of tuples
-	def __replace_word(self, oldWord, new_word, list_of_words):
-		out = [(new_word, tpl[1]) if tpl[0] == oldWord else tpl for tpl in list_of_words]
+	def __replace_word(self, old_word, new_word, list_of_words):
+		out = [(new_word, tpl[1]) if tpl[0] == old_word else tpl for tpl in list_of_words]
 
 		return out
 
