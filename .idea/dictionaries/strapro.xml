@@ -1,8 +1,17 @@
 <component name="ProjectDictionaryState">
   <dictionary name="strapro">
     <words>
+      <w>hypernym</w>
       <w>jaccard</w>
+      <w>lemmatize</w>
+      <w>lemmatized</w>
+      <w>lemmatizer</w>
       <w>splitted</w>
+      <w>syns</w>
+      <w>synset</w>
+      <w>synsets</w>
+      <w>tokenized</w>
+      <w>wordnet</w>
     </words>
   </dictionary>
 </component>
