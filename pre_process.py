@@ -32,6 +32,7 @@ def display_menu():
 		"[4] Quit \n"
 		"Please input command: "
 	))
+	print("\033c")
 
 	return menu_input
 

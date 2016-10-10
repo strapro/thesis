@@ -201,6 +201,7 @@ def pre_process_corpus(settings, parsed_directory_name, verbosity='silent'):
 	i = 0
 	directories = next(os.walk('splitted_files'))[1]
 	for directory in directories:
+		i += 1
 		if verbosity != 'silent':
 			stdout.write("\r" + str(i) + '/' + str(len(directories)))
 			stdout.flush()
