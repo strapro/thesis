@@ -2,7 +2,9 @@ import os
 import csv
 
 
-def split_corpus():
+def split_corpus(verbosity='silent'):
+	if verbosity != 'silent':
+		print("Splitting corpus. Please wait")
 	i = 0
 	with open('MSRParaphraseCorpus/msr_paraphrase_train.txt', 'r') as f:
 		next(f)

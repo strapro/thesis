@@ -189,7 +189,10 @@ class PreProcessor:
 		return out
 
 
-def pre_process_corpus(settings, parsed_directory_name):
+def pre_process_corpus(settings, parsed_directory_name, verbosity='silent'):
+	if verbosity != 'silent':
+		print("Executing pre processing. Please wait")
+
 	if os.path.exists(parsed_directory_name):
 		shutil.rmtree(parsed_directory_name, ignore_errors=True)
 
