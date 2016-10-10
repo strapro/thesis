@@ -4,7 +4,7 @@ import random
 import itertools
 import nltk
 import shutil
-
+from sys import stdout
 
 class PreProcessor:
 	__settings = {}
@@ -191,15 +191,20 @@ class PreProcessor:
 
 def pre_process_corpus(settings, parsed_directory_name, verbosity='silent'):
 	if verbosity != 'silent':
-		print("Executing pre processing. Please wait")
+		stdout.write("Executing pre processing. Please wait\n")
 
 	if os.path.exists(parsed_directory_name):
 		shutil.rmtree(parsed_directory_name, ignore_errors=True)
 
 	os.makedirs(parsed_directory_name)
 
-	for directory in next(os.walk('splitted_files'))[1]:
-		print directory
+	i = 0
+	directories = next(os.walk('splitted_files'))[1]
+	for directory in directories:
+		if verbosity != 'silent':
+			stdout.write("\r" + str(i) + '/' + str(len(directories)))
+			stdout.flush()
+
 		files = next(os.walk('splitted_files/'+directory))[2]
 		first_sentence = False
 		second_sentence = False
@@ -236,3 +241,6 @@ def pre_process_corpus(settings, parsed_directory_name, verbosity='silent'):
 		target2.truncate()
 		target2.write(" ".join(word.encode('utf8') for word, pos in final_words_second_sentence))
 		target2.close()
+
+	if verbosity != 'silent':
+		stdout.write("\n")

@@ -46,7 +46,7 @@ while loop:
 	elif selection == '2':
 		directory_name = settings_to_directory(settings)
 		pre_process_corpus(settings, directory_name, verbosity)
-		execute_ferret(directory_name, 'verbose')
+		execute_ferret(directory_name, verbosity)
 		raw_input("Corpus pre processed successfully \n(Press any key to continue)")
 	elif selection == '3':
 		directory_name = select_directory()

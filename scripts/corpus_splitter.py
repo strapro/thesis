@@ -1,10 +1,11 @@
 import os
 import csv
+from sys import stdout
 
 
 def split_corpus(verbosity='silent'):
 	if verbosity != 'silent':
-		print("Splitting corpus. Please wait")
+		stdout.write("Splitting corpus. Please wait\n")
 	i = 0
 	with open('MSRParaphraseCorpus/msr_paraphrase_train.txt', 'r') as f:
 		next(f)
