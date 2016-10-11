@@ -6,6 +6,7 @@ import nltk
 import shutil
 from sys import stdout
 
+
 class PreProcessor:
 	__settings = {}
 
@@ -59,7 +60,7 @@ class PreProcessor:
 
 		# Remove stopwords we do not need them for the rest of this procedure
 		if self.__settings['remove_stop_words']:
-			filtered_tags = [(word, tag) for word, tag in tags if word not in nltk.corpus.stopwords.words('english')]
+			filtered_tags = [(word, tag) for word, tag in tags if word.decode('utf-8') not in nltk.corpus.stopwords.words('english')]
 		else:
 			filtered_tags = tags
 
@@ -191,7 +192,7 @@ class PreProcessor:
 
 def pre_process_corpus(settings, parsed_directory_name, verbosity='silent'):
 	if verbosity != 'silent':
-		stdout.write("Executing pre processing. Please wait\n")
+		stdout.write("Executing pre processing. Please wait.\n")
 
 	if os.path.exists(parsed_directory_name):
 		shutil.rmtree(parsed_directory_name, ignore_errors=True)

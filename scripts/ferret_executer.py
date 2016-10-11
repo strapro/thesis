@@ -4,7 +4,7 @@ from sys import stdout
 
 def execute_ferret(target_directory, verbosity='silent'):
 	if verbosity != 'silent':
-		stdout.write("Executing ferret. Please wait\n")
+		stdout.write("Executing ferret. Please wait.\n")
 
 	command = 'ferret/src/ferret'
 
