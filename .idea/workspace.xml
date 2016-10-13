@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="05dcbd8b-fde4-4f38-a7ce-1dd337fa782f" name="Default" comment="">
+    <list default="true" id="05dcbd8b-fde4-4f38-a7ce-1dd337fa782f" name="Default" comment="fixes in accuract calculator">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/dictionaries/strapro.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/thesis.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/directory_selector.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pre_process.py" afterPath="$PROJECT_DIR$/pre_process.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/corpus_pre_processor.py" afterPath="$PROJECT_DIR$/scripts/corpus_pre_processor.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/corpus_splitter.py" afterPath="$PROJECT_DIR$/scripts/corpus_splitter.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/ferret_executer.py" afterPath="$PROJECT_DIR$/scripts/ferret_executer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/settings_helper.py" afterPath="$PROJECT_DIR$/scripts/settings_helper.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/accuracy_calculator.py" afterPath="$PROJECT_DIR$/scripts/accuracy_calculator.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/result_generator.py" afterPath="$PROJECT_DIR$/scripts/result_generator.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/splitted_files/results.csv" afterPath="$PROJECT_DIR$/splitted_files/results.csv" />
     </list>
     <ignored path="thesis.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,32 +35,22 @@
       <file leaf-file-name="pre_process.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pre_process.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="121" column="16" selection-start-line="121" selection-start-column="16" selection-end-line="121" selection-end-column="16" />
+            <state relative-caret-position="195">
+              <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
               <folding>
                 <element signature="e#0#58#0" expanded="true" />
-                <element signature="e#349#1316#0" expanded="false" />
                 <element signature="e#1340#1564#0" expanded="false" />
+                <element signature="e#1592#2585#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="result_generator.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/scripts/result_generator.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="accuracy_calculator.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="accuracy_calculator.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/accuracy_calculator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="252">
+              <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -65,30 +58,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings_helper.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/settings_helper.py">
+      <file leaf-file-name="result_generator.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/result_generator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="28" column="50" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="50" />
+            <state relative-caret-position="612">
+              <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="corpus_pre_processor.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/corpus_pre_processor.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="699">
-              <caret line="192" column="4" selection-start-line="192" selection-start-column="4" selection-end-line="192" selection-end-column="4" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-                <element signature="e#3087#3206#0" expanded="false" />
-                <element signature="e#3492#4552#0" expanded="false" />
-                <element signature="e#4735#5487#0" expanded="false" />
-                <element signature="e#5639#5870#0" expanded="false" />
-                <element signature="e#6014#6314#0" expanded="false" />
-                <element signature="e#6422#7361#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -116,10 +91,8 @@
         <option value="$PROJECT_DIR$/scripts/pre_processing.py" />
         <option value="$PROJECT_DIR$/scripts/nltk_sandbox.py" />
         <option value="$PROJECT_DIR$/prep_process_cli.py" />
-        <option value="$PROJECT_DIR$/scripts/accuracy_calculator.py" />
         <option value="$PROJECT_DIR$/scripts/ferret_checker.py" />
         <option value="$PROJECT_DIR$/pre_process" />
-        <option value="$PROJECT_DIR$/scripts/result_generator.py" />
         <option value="$PROJECT_DIR$/splitted_files/1429/ferret_result.txt" />
         <option value="$PROJECT_DIR$/splitted_files/143/ferret_result.txt" />
         <option value="$PROJECT_DIR$/.gitignore" />
@@ -128,6 +101,8 @@
         <option value="$PROJECT_DIR$/scripts/ferret_executer.py" />
         <option value="$PROJECT_DIR$/scripts/corpus_pre_processor.py" />
         <option value="$PROJECT_DIR$/scripts/settings_helper.py" />
+        <option value="$PROJECT_DIR$/scripts/result_generator.py" />
+        <option value="$PROJECT_DIR$/scripts/accuracy_calculator.py" />
         <option value="$PROJECT_DIR$/pre_process.py" />
       </list>
     </option>
@@ -210,24 +185,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="splitted_parsed_files" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="use_word_sense...True....remove_stop_words...True....similarity_threshold...0.5....permitted_tags...NOUN..VERB..ADV..PRON....perform_ordering...True....similarity_measure...wup....type_of_replacement...keep_unique" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thesis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thesis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="scripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -239,10 +196,11 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="SearchEverywhereHistoryKey" value="res&#9;FILE&#9;file:///home/strapro/Projects/thesis/scripts/result_generator.py" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -555,7 +513,14 @@
       <option name="project" value="LOCAL" />
       <updated>1476133980823</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="fixes for cli">
+      <created>1476214868193</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1476214868193</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -607,11 +572,12 @@
     <MESSAGE value="refactor" />
     <MESSAGE value="add command line interface" />
     <MESSAGE value="fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
+    <MESSAGE value="fixes for cli" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixes for cli" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="13" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -829,21 +795,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pre_process">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="72" column="31" selection-start-line="72" selection-start-column="31" selection-end-line="72" selection-end-column="31" />
-          <folding>
-            <element signature="e#47#59#0" expanded="true" />
-            <element signature="e#1037#1067#0" expanded="false" />
-            <element signature="e#1125#1140#0" expanded="false" />
-            <element signature="e#2392#2432#0" expanded="false" />
-            <element signature="e#2463#2536#0" expanded="false" />
-            <marker date="1476028704773" expanded="true" signature="1487:1667" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -952,52 +903,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/corpus_pre_processor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="699">
-          <caret line="192" column="4" selection-start-line="192" selection-start-column="4" selection-end-line="192" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-            <element signature="e#3087#3206#0" expanded="false" />
-            <element signature="e#3492#4552#0" expanded="false" />
-            <element signature="e#4735#5487#0" expanded="false" />
-            <element signature="e#5639#5870#0" expanded="false" />
-            <element signature="e#6014#6314#0" expanded="false" />
-            <element signature="e#6422#7361#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/settings_helper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="28" column="50" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/accuracy_calculator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pre_process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="121" column="16" selection-start-line="121" selection-start-column="16" selection-end-line="121" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#58#0" expanded="true" />
-            <element signature="e#349#1316#0" expanded="false" />
-            <element signature="e#1340#1564#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/splitted_files/results.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
@@ -1014,11 +919,72 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/settings_helper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="28" column="50" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/corpus_pre_processor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="699">
+          <caret line="192" column="4" selection-start-line="192" selection-start-column="4" selection-end-line="192" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#3087#3206#0" expanded="false" />
+            <element signature="e#3492#4552#0" expanded="false" />
+            <element signature="e#4735#5487#0" expanded="false" />
+            <element signature="e#5639#5870#0" expanded="false" />
+            <element signature="e#6014#6314#0" expanded="false" />
+            <element signature="e#6422#7361#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pre_process">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="519">
+          <caret line="72" column="31" selection-start-line="72" selection-start-column="31" selection-end-line="72" selection-end-column="31" />
+          <folding>
+            <element signature="e#47#59#0" expanded="true" />
+            <element signature="e#1037#1067#0" expanded="false" />
+            <element signature="e#1125#1140#0" expanded="false" />
+            <element signature="e#2392#2432#0" expanded="false" />
+            <element signature="e#2463#2536#0" expanded="false" />
+            <marker date="1476028704773" expanded="true" signature="1487:1667" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pre_process.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+            <element signature="e#1340#1564#0" expanded="false" />
+            <element signature="e#1592#2585#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/result_generator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+        <state relative-caret-position="612">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/accuracy_calculator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

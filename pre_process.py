@@ -77,7 +77,7 @@ def select_directory():
 		for parsedDirectory in next(os.walk('splitted_parsed_files'))[1]:
 			extracted_settings = directory_to_settings(parsedDirectory)
 			if i == 0:
-				header = ['# 	'] + ['date'] + list(extracted_settings.keys())
+				header = ['# '] + ['date'] + list(extracted_settings.keys())
 			directory_time = os.stat('splitted_parsed_files/'+parsedDirectory).st_mtime
 			directory_date = time.strftime("%Y-%m-%d %H:%M", time.localtime(directory_time))
 			values.append(['['+str(i)+']'] + [directory_date] + list(extracted_settings.values()))
@@ -121,7 +121,7 @@ while loop:
 		threshold = raw_input("Please input threshold: ")
 		generate_result(directory_name, threshold)
 		result = calculate_accuracy(directory_name)
-		print result
+		print Table(result.keys(), [[round(x, 4) for x in result.values()]])
 		raw_input("(Press any key to continue)")
 	elif selection == '4':  # Calculate accuracy
 		loop = False
