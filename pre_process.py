@@ -100,7 +100,6 @@ settings = {
 	"similarity_measure": "wup",  # Possible values are "jcn", "lin", "res", "lch", "path", "wup"
 	"similarity_threshold": 0.5,
 	"type_of_replacement": "keep_unique",  # Possible values are "random", "keep_unique", "keep_other"
-	# TODO use something more sophisticated like common_hypernym or most_abstract
 }
 
 verbosity = 'verbose'
@@ -123,5 +122,5 @@ while loop:
 		result = calculate_accuracy(directory_name)
 		print Table(result.keys(), [[round(x, 4) for x in result.values()]])
 		raw_input("(Press any key to continue)")
-	elif selection == '4':  # Calculate accuracy
+	elif selection == '4':  # Quit
 		loop = False
