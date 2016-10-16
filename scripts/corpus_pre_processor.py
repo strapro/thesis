@@ -231,9 +231,13 @@ class PreProcessor(object):
 		return out
 
 
-def pre_process_corpus(settings, parsed_directory_name, force_overwrite=True, verbosity='silent'):
+def pre_process_corpus(settings, parsed_directory_name, force_overwrite=True, verbosity='silent', progress_bar=None):
 	if verbosity != 'silent':
 		stdout.write("Executing pre processing. Please wait.\n")
+
+	if progress_bar is not None:
+		progress_bar.set_text("Executing pre processing")
+		progress_bar.set_fraction(0)
 
 	if os.path.exists(parsed_directory_name):
 		if force_overwrite:
@@ -245,11 +249,17 @@ def pre_process_corpus(settings, parsed_directory_name, force_overwrite=True, ve
 
 	i = 0
 	directories = next(os.walk('splitted_files'))[1]
+	directories_len = len(directories)
 	for directory in directories:
 		i += 1
 		if verbosity != 'silent':
-			stdout.write("\r" + str(i) + '/' + str(len(directories)))
+			stdout.write("\r" + str(i) + '/' + str(directories_len))
 			stdout.flush()
+
+		if progress_bar is not None:
+			progress_bar.pulse()
+			fraction = i/float(directories_len)
+			progress_bar.set_fraction(fraction)
 
 		files = next(os.walk('splitted_files/'+directory))[2]
 		first_sentence = False

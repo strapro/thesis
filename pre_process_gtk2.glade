@@ -304,23 +304,6 @@ Efstratios Provatopoulos</property>
       </object>
     </child>
   </object>
-  <object class="GtkListStore" id="orderingTypes">
-    <columns>
-      <!-- column-name gchararray1 -->
-      <column type="gchararray"/>
-    </columns>
-    <data>
-      <row>
-        <col id="0" translatable="yes">Grammatical</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes">Alphanumeric</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes">Common first</col>
-      </row>
-    </data>
-  </object>
   <object class="GtkWindow" id="processSettingsWindow">
     <property name="can_focus">False</property>
     <property name="resizable">False</property>
@@ -366,7 +349,7 @@ Efstratios Provatopoulos</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="xalign">1</property>
-                <property name="label" translatable="yes">Ordering type</property>
+                <property name="label" translatable="yes">Perform ordering</property>
                 <property name="justify">right</property>
               </object>
               <packing>
@@ -445,7 +428,7 @@ Efstratios Provatopoulos</property>
                 <property name="can_focus">False</property>
                 <child>
                   <object class="GtkCheckButton" id="chkPermitNoun">
-                    <property name="label" translatable="yes">NOUN</property>
+                    <property name="label" translatable="yes">NOUN (year, home, costs, time, Africa)</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
@@ -460,7 +443,7 @@ Efstratios Provatopoulos</property>
                 </child>
                 <child>
                   <object class="GtkCheckButton" id="chkPermitVerb">
-                    <property name="label" translatable="yes">VERB</property>
+                    <property name="label" translatable="yes">VERB (is, say, told, given, playing, would)</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
@@ -475,7 +458,7 @@ Efstratios Provatopoulos</property>
                 </child>
                 <child>
                   <object class="GtkCheckButton" id="chkPermitAdv">
-                    <property name="label" translatable="yes">ADV</property>
+                    <property name="label" translatable="yes">ADV (really, already, still, early, now)</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
@@ -490,7 +473,7 @@ Efstratios Provatopoulos</property>
                 </child>
                 <child>
                   <object class="GtkCheckButton" id="chkPermitAdj">
-                    <property name="label" translatable="yes">ADJ</property>
+                    <property name="label" translatable="yes">ADJ (new, good, high, special, big, local)</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
@@ -504,8 +487,8 @@ Efstratios Provatopoulos</property>
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkCheckButton" id="chkPermitPron">
-                    <property name="label" translatable="yes">PRON</property>
+                  <object class="GtkCheckButton" id="chkPermitAdp">
+                    <property name="label" translatable="yes">ADP (on, of, at, with, by, into, under)</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
@@ -518,31 +501,27 @@ Efstratios Provatopoulos</property>
                     <property name="position">4</property>
                   </packing>
                 </child>
+                <child>
+                  <object class="GtkCheckButton" id="chkPermitConj">
+                    <property name="label" translatable="yes">CONJ (and, or, but, if, while, although)</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="draw_indicator">True</property>
+                  </object>
+                  <packing>
+                    <property name="expand">True</property>
+                    <property name="fill">True</property>
+                    <property name="position">5</property>
+                  </packing>
+                </child>
               </object>
               <packing>
                 <property name="left_attach">1</property>
                 <property name="right_attach">2</property>
                 <property name="top_attach">1</property>
                 <property name="bottom_attach">2</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkComboBox" id="cmbOrderingType">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="model">orderingTypes</property>
-                <child>
-                  <object class="GtkCellRendererText" id="cellrenderertext1"/>
-                  <attributes>
-                    <attribute name="text">0</attribute>
-                  </attributes>
-                </child>
-              </object>
-              <packing>
-                <property name="left_attach">1</property>
-                <property name="right_attach">2</property>
-                <property name="top_attach">2</property>
-                <property name="bottom_attach">3</property>
               </packing>
             </child>
             <child>
@@ -634,6 +613,21 @@ Efstratios Provatopoulos</property>
               </packing>
             </child>
             <child>
+              <object class="GtkCheckButton" id="chkPerformOrdering">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="use_action_appearance">False</property>
+                <property name="draw_indicator">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+                <property name="top_attach">2</property>
+                <property name="bottom_attach">3</property>
+              </packing>
+            </child>
+            <child>
               <placeholder/>
             </child>
           </object>
@@ -676,6 +670,40 @@ Efstratios Provatopoulos</property>
         <col id="7" translatable="yes">Random</col>
       </row>
     </data>
+  </object>
+  <object class="GtkWindow" id="progressBarWindow">
+    <property name="can_focus">False</property>
+    <property name="type">popup</property>
+    <property name="resizable">False</property>
+    <property name="modal">True</property>
+    <property name="window_position">center</property>
+    <property name="skip_taskbar_hint">True</property>
+    <property name="skip_pager_hint">True</property>
+    <property name="accept_focus">False</property>
+    <property name="decorated">False</property>
+    <property name="deletable">False</property>
+    <child>
+      <object class="GtkTable" id="table7">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <child>
+          <object class="GtkTable" id="table10">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkProgressBar" id="progressBar">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x_padding">15</property>
+            <property name="y_padding">15</property>
+          </packing>
+        </child>
+      </object>
+    </child>
   </object>
   <object class="GtkListStore" id="similarityMeasures">
     <columns>
