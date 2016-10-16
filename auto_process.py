@@ -34,7 +34,7 @@ settings_possible_values = {
 
 if __name__ == '__main__':
 	i = 0
-	p = multiprocessing.Pool(3)
+	p = multiprocessing.Pool(8)
 	for remove_stop_words in settings_possible_values['remove_stop_words']:
 		for permitted_tags in settings_possible_values['permitted_tags']:
 			for perform_ordering in settings_possible_values['perform_ordering']:

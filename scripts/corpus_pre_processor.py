@@ -92,21 +92,30 @@ class PreProcessor(object):
 	# all the words of the other sentence. Only the maximum similarity for each pair will be returned
 	def __get_similarities(self, unique_words, unique_words_sentence, all_words, all_words_sentence):
 		max_similarities = []
+		syns_1 = []
+		syns_2 = []
 		for word1, tag1 in unique_words:
-			syns_1 = self.__get_synset(unique_words_sentence, word1, tag1)
+			syns_1.append(self.__get_synset(unique_words_sentence, word1, tag1))
+
+		for word2, tag2 in all_words:
+			syns_2.append(self.__get_synset(all_words_sentence, word2, tag2))
+
+		word1_index = 0
+		for word1, tag1 in unique_words:
 			sims = []
+			word2_index = 0
 			for word2, tag2 in all_words:
 				# We want to examine the similarity only for similar parts of speech
 				if tag1 == tag2:
-					syns_2 = self.__get_synset(all_words_sentence, word2, tag2)
-					for sense1, sense2 in itertools.product(syns_1, syns_2):
+					for sense1, sense2 in itertools.product(syns_1[word1_index], syns_2[word2_index]):
 						# There is a chance that we do not have a synset for a word at all
 						if sense1 and sense2:
 							d = self.__get_similarity(sense1.name(), sense2.name(), self.__settings["similarity_measure"])
 							# There is a chance that there is no similarity at all
 							if d > 0.0:
 								sims.append((d, sense1, sense2, word1, word2))
-
+				word2_index += 1
+			word1_index += 1
 			# Sims at this point holds the similarity of every word in the other sentence
 			# to a single unique word of the first sentence
 			if sims:
@@ -191,10 +200,13 @@ class PreProcessor(object):
 			else:
 				raise Exception('Unknown similarity measure')
 
-			d = d if d != 'None' else 0
+			try:
+				d = float(d)
+			except TypeError:
+				d = 0
 			self.__redis.set(key_name, d)
 
-		return float(d)
+		return d
 
 	def __get_replacement_word(self, unique_word, word, unique_word_synset, word_synset):
 		# Possible values are "random", "keep_unique", "keep_other"
@@ -226,7 +238,6 @@ def pre_process_corpus(settings, parsed_directory_name, force_overwrite=True, ve
 			shutil.rmtree(parsed_directory_name, ignore_errors=True)
 		else:
 			return True
-
 
 	os.makedirs(parsed_directory_name)
 
