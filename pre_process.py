@@ -105,17 +105,17 @@ settings = {
 
 verbosity = 'verbose'
 loop = True
-force_overwrite=True
+force_overwrite = True
 while loop:
 	selection = display_menu()
 	if selection == '1':  # Split corpus
 		split_corpus(verbosity)
-		execute_ferret('splitted_files', verbosity)
+		execute_ferret('splitted_files', force_overwrite, verbosity)
 		raw_input("Corpus splitted successfully \n(Press any key to continue)")
 	elif selection == '2':  # Pre process corpus
 		directory_name = settings_to_directory(settings)
 		pre_process_corpus(settings, 'splitted_parsed_files/'+directory_name, force_overwrite, verbosity)
-		execute_ferret('splitted_parsed_files/'+directory_name, verbosity)
+		execute_ferret('splitted_parsed_files/'+directory_name, force_overwrite, verbosity)
 		raw_input("Corpus pre processed successfully \n(Press any key to continue)")
 	elif selection == '3':  # Calculate accuracy
 		directory_name = select_directory()
