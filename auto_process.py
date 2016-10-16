@@ -12,17 +12,18 @@ def float_range(x, y, jump):
 
 
 def execute(settings, i):
-	total = 11880
+	total = 5940
 	verbosity = 'silent'
+	force_overwrite = False
 
 	print str(i) + "/" + str(total)
 	directory_name = settings_to_directory(settings)
-	pre_process_corpus(settings, 'splitted_parsed_files/' + directory_name, verbosity)
+	pre_process_corpus(settings, 'splitted_parsed_files/' + directory_name, force_overwrite, verbosity)
 	execute_ferret('splitted_parsed_files/' + directory_name, verbosity)
 
 tags = ['VERB', 'NOUN', 'ADJ', 'ADV', 'PRON', 'ADP', 'CONJ']
 settings_possible_values = {
-	"remove_stop_words": [True, False],
+	"remove_stop_words": [True],
 	"permitted_tags": sum([map(list, combinations(tags, i)) for i in range(3, len(tags) + 1)], []),
 	"perform_ordering": [True, False],
 	"use_word_sense": [True],  # [True, False]

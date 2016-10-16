@@ -75,8 +75,9 @@ def select_directory():
 		i = 0
 		header = values = []
 		for parsedDirectory in next(os.walk('splitted_parsed_files'))[1]:
+			i += 1
 			extracted_settings = directory_to_settings(parsedDirectory)
-			if i == 0:
+			if i == 1:
 				header = ['# '] + ['date'] + list(extracted_settings.keys())
 			directory_time = os.stat('splitted_parsed_files/'+parsedDirectory).st_mtime
 			directory_date = time.strftime("%Y-%m-%d %H:%M", time.localtime(directory_time))
@@ -85,7 +86,7 @@ def select_directory():
 			target_directory_candidates.append(parsedDirectory)
 		print Table(header, values)
 		target_directory_candidate_index = raw_input("Which parsed files: ")
-		target_directory = 'splitted_parsed_files/'+target_directory_candidates[int(target_directory_candidate_index)]
+		target_directory = 'splitted_parsed_files/'+target_directory_candidates[int(target_directory_candidate_index) - 1]
 
 	return target_directory
 
@@ -104,6 +105,7 @@ settings = {
 
 verbosity = 'verbose'
 loop = True
+force_overwrite=True
 while loop:
 	selection = display_menu()
 	if selection == '1':  # Split corpus
@@ -112,7 +114,7 @@ while loop:
 		raw_input("Corpus splitted successfully \n(Press any key to continue)")
 	elif selection == '2':  # Pre process corpus
 		directory_name = settings_to_directory(settings)
-		pre_process_corpus(settings, 'splitted_parsed_files/'+directory_name, verbosity)
+		pre_process_corpus(settings, 'splitted_parsed_files/'+directory_name, force_overwrite, verbosity)
 		execute_ferret('splitted_parsed_files/'+directory_name, verbosity)
 		raw_input("Corpus pre processed successfully \n(Press any key to continue)")
 	elif selection == '3':  # Calculate accuracy

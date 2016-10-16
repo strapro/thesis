@@ -4,19 +4,19 @@ import random
 import itertools
 import nltk
 import shutil
+import redis
 from sys import stdout
-from joblib import Memory
-mem = Memory(cachedir='./cache', verbose=0)
 
 
 class PreProcessor(object):
 	__settings = {}
 	__brown_dat = ''
+	__redis = ''
 
 	def __init__(self, settings):
 		self.__settings = settings
 		self.__brown_dat = nltk.corpus.wordnet_ic.ic('ic-brown.dat')
-		self.__get_similarity = mem.cache(self.__get_similarity, ignore=['self'])
+		self.__redis = redis.StrictRedis(host='localhost', port=6379, db=0)
 
 	# This does all the work
 	def pre_process(self, first_sentence, second_sentence):
@@ -155,38 +155,46 @@ class PreProcessor(object):
 
 	# This function returns the similarity between twn senses
 	def __get_similarity(self, sense1_name, sense2_name, similarity_measure):
-		sense1 = nltk.corpus.wordnet.synset(sense1_name)
-		sense2 = nltk.corpus.wordnet.synset(sense2_name)
-		# Possible values are "jcn", "lin", "res", "lch", "path", "wup"
-		if similarity_measure == 'jcn':
-			# Attempt to normalize the value by dividing by the largest self referencing similarity
-			# The max score in this case depends on the synsets depth as well as the corpus used.
-			sense1_self_similarity = nltk.corpus.wordnet.res_similarity(sense1, sense1, self.__brown_dat)
-			sense2_self_similarity = nltk.corpus.wordnet.res_similarity(sense2, sense2, self.__brown_dat)
-			max_self_similarity = max([sense1_self_similarity, sense2_self_similarity])
-			d = nltk.corpus.wordnet.jcn_similarity(sense1, sense2, self.__brown_dat) / max_self_similarity
-		elif similarity_measure == 'lin':
-			d = nltk.corpus.wordnet.lin_similarity(sense1, sense2, self.__brown_dat)
-		elif similarity_measure == 'res':
-			# Attempt to normalize the value by dividing by the largest self referencing similarity
-			# The max score in this case depends on the synsets depth as well as the corpus used.
-			sense1_self_similarity = nltk.corpus.wordnet.res_similarity(sense1, sense1, self.__brown_dat)
-			sense2_self_similarity = nltk.corpus.wordnet.res_similarity(sense2, sense2, self.__brown_dat)
-			max_self_similarity = max([sense1_self_similarity, sense2_self_similarity])
-			d = nltk.corpus.wordnet.res_similarity(sense1, sense2, self.__brown_dat)/max_self_similarity
-		elif similarity_measure == 'lch':
-			# The largest score that lch can possible return is 3.6375861597263857
-			# In order to normalize the value let's divide by it
-			# This value was acquired experimentally
-			d = nltk.corpus.wordnet.lch_similarity(sense1, sense2)/3.6375861597263857
-		elif similarity_measure == 'path':
-			d = nltk.corpus.wordnet.path_similarity(sense1, sense2)
-		elif similarity_measure == 'wup':
-			d = nltk.corpus.wordnet.wup_similarity(sense1, sense2)
+		key_name = sense1_name + '_' + sense2_name + '__' + similarity_measure
+		value = self.__redis.get(key_name)
+		if value is not None:
+			d = value
 		else:
-			raise Exception('Unknown similarity measure')
+			sense1 = nltk.corpus.wordnet.synset(sense1_name)
+			sense2 = nltk.corpus.wordnet.synset(sense2_name)
+			# Possible values are "jcn", "lin", "res", "lch", "path", "wup"
+			if similarity_measure == 'jcn':
+				# Attempt to normalize the value by dividing by the largest self referencing similarity
+				# The max score in this case depends on the synsets depth as well as the corpus used.
+				sense1_self_similarity = nltk.corpus.wordnet.res_similarity(sense1, sense1, self.__brown_dat)
+				sense2_self_similarity = nltk.corpus.wordnet.res_similarity(sense2, sense2, self.__brown_dat)
+				max_self_similarity = max([sense1_self_similarity, sense2_self_similarity])
+				d = nltk.corpus.wordnet.jcn_similarity(sense1, sense2, self.__brown_dat) / max_self_similarity
+			elif similarity_measure == 'lin':
+				d = nltk.corpus.wordnet.lin_similarity(sense1, sense2, self.__brown_dat)
+			elif similarity_measure == 'res':
+				# Attempt to normalize the value by dividing by the largest self referencing similarity
+				# The max score in this case depends on the synsets depth as well as the corpus used.
+				sense1_self_similarity = nltk.corpus.wordnet.res_similarity(sense1, sense1, self.__brown_dat)
+				sense2_self_similarity = nltk.corpus.wordnet.res_similarity(sense2, sense2, self.__brown_dat)
+				max_self_similarity = max([sense1_self_similarity, sense2_self_similarity])
+				d = nltk.corpus.wordnet.res_similarity(sense1, sense2, self.__brown_dat)/max_self_similarity
+			elif similarity_measure == 'lch':
+				# The largest score that lch can possible return is 3.6375861597263857
+				# In order to normalize the value let's divide by it
+				# This value was acquired experimentally
+				d = nltk.corpus.wordnet.lch_similarity(sense1, sense2)/3.6375861597263857
+			elif similarity_measure == 'path':
+				d = nltk.corpus.wordnet.path_similarity(sense1, sense2)
+			elif similarity_measure == 'wup':
+				d = nltk.corpus.wordnet.wup_similarity(sense1, sense2)
+			else:
+				raise Exception('Unknown similarity measure')
 
-		return d
+			d = d if d != 'None' else 0
+			self.__redis.set(key_name, d)
+
+		return float(d)
 
 	def __get_replacement_word(self, unique_word, word, unique_word_synset, word_synset):
 		# Possible values are "random", "keep_unique", "keep_other"
@@ -209,12 +217,16 @@ class PreProcessor(object):
 		return out
 
 
-def pre_process_corpus(settings, parsed_directory_name, verbosity='silent'):
+def pre_process_corpus(settings, parsed_directory_name, force_overwrite=True, verbosity='silent'):
 	if verbosity != 'silent':
 		stdout.write("Executing pre processing. Please wait.\n")
 
 	if os.path.exists(parsed_directory_name):
-		shutil.rmtree(parsed_directory_name, ignore_errors=True)
+		if force_overwrite:
+			shutil.rmtree(parsed_directory_name, ignore_errors=True)
+		else:
+			return True
+
 
 	os.makedirs(parsed_directory_name)
 
