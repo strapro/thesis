@@ -19,17 +19,20 @@ def generate_result(target_directory, threshold):
 		reader = csv.reader(f, delimiter='\t')
 		for result, id1, id2, string1, string2 in reader:
 			i += 1
-			with open(target_directory+'/'+str(i) + '/ferret_result.txt', 'r') as ferret_output:
-				ferret_output_reader = csv.reader(ferret_output, delimiter=';')
-				ferret_result_row = next((x for j, x in enumerate(ferret_output_reader) if j == 2), None)
-				if ferret_result_row is None:
-					raise Exception('Invalid ferret output at: '+target_directory+'/'+str(i))
-				ferret_jaccard_coefficient = ferret_result_row[5].strip()
-				result_file_writer.writerow([
-					str(i),
-					result,
-					1 if float(ferret_jaccard_coefficient) > float(threshold) else 0,
-					ferret_jaccard_coefficient,
-				])
+			try:
+				with open(target_directory+'/'+str(i) + '/ferret_result.txt', 'r') as ferret_output:
+					ferret_output_reader = csv.reader(ferret_output, delimiter=';')
+					ferret_result_row = next((x for j, x in enumerate(ferret_output_reader) if j == 2), None)
+					if ferret_result_row is None:
+						raise Exception(target_directory+'/'+str(i))
+					ferret_jaccard_coefficient = ferret_result_row[5].strip()
+					result_file_writer.writerow([
+						str(i),
+						result,
+						1 if float(ferret_jaccard_coefficient) > float(threshold) else 0,
+						ferret_jaccard_coefficient,
+					])
+			except Exception:
+				raise Exception(target_directory + '/' + str(i))
 
 	result_file.close()

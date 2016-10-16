@@ -24,3 +24,11 @@ def execute_ferret(target_directory, force_overwrite=True, verbosity='silent'):
 
 	if verbosity != 'silent':
 		stdout.write("\n")
+
+
+def execute_single_ferret(target_directory):
+	command = 'ferret/src/ferret'
+	files = next(os.walk(target_directory))[2]
+	command_with_files = command + " " + target_directory + "/" + files[0] + " " + target_directory + "/" + files[1]
+	command_with_redirects = command_with_files + " > " + target_directory + "/ferret_result.txt" + " 2> /dev/null"
+	os.system(command_with_redirects)

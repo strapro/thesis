@@ -95,11 +95,11 @@ def select_directory():
 # The settings to be used
 settings = {
 	"remove_stop_words": True,
-	"permitted_tags": ['NOUN', 'VERB', 'ADV', 'PRON'],
+	"permitted_tags": ['VERB', 'NOUN', 'ADV'],
 	"perform_ordering": True,
 	"use_word_sense": True,
-	"similarity_measure": "wup",  # Possible values are "jcn", "lin", "res", "lch", "path", "wup"
-	"similarity_threshold": 0.5,
+	"similarity_measure": "jcn",  # Possible values are "jcn", "lin", "res", "lch", "path", "wup"
+	"similarity_threshold": 0.1,
 	"type_of_replacement": "keep_unique",  # Possible values are "random", "keep_unique", "keep_other"
 }
 

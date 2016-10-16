@@ -5,3 +5,5 @@ home
 /*/*.save
 splitted_parsed_files/*
 cache
+/dump.rdb
+/auto_result.csv
