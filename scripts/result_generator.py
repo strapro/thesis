@@ -24,6 +24,7 @@ def generate_result(target_directory, threshold, progress_bar=None):
 
 		directories_len = len(list(reader))
 		f.seek(0)
+		next(f)  # skip headers
 		for result, id1, id2, string1, string2 in reader:
 			i += 1
 			if progress_bar is not None:
@@ -32,7 +33,7 @@ def generate_result(target_directory, threshold, progress_bar=None):
 				progress_bar.set_fraction(fraction)
 
 			try:
-				with open(target_directory+'/'+str(i) + '/ferret_result.txt', 'r') as ferret_output:
+				with open(target_directory + '/' + str(i) + '/ferret_result.txt', 'r') as ferret_output:
 					ferret_output_reader = csv.reader(ferret_output, delimiter=';')
 					ferret_result_row = next((x for j, x in enumerate(ferret_output_reader) if j == 2), None)
 					if ferret_result_row is None:
