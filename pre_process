@@ -118,21 +118,52 @@ class PreProcessGTK:
 
 	# chooserWindow=====================================================================================================
 
-	def on_btnCalculateAccuracy_click_event(self, event):
-		parent = None
-		md = gtk.MessageDialog(
-			parent,
-			gtk.DIALOG_DESTROY_WITH_PARENT,
-			gtk.MESSAGE_INFO,
-			gtk.BUTTONS_CLOSE,
-			"Calculate accuracy"
-		)
-		md.run()
+	def on_chooserWindow_load_event(self, event):
+		for parsedDirectory in next(os.walk('splitted_parsed_files'))[1]:
+			extracted_settings = directory_to_settings(parsedDirectory)
+			directory_time = os.stat('splitted_parsed_files/' + parsedDirectory).st_mtime
+			directory_date = time.strftime("%Y-%m-%d %H:%M", time.localtime(directory_time))
+			row = [directory_date] + list(extracted_settings.values()) + ['splitted_parsed_files/' + parsedDirectory]
 
-		# TODO calculate settings this from the selected row
-		# target_directory = settings_to_directory(settings)
-		# generate_result(target_directory, threshold)
-		# calculate_accuracy(target_directory)
+			self.glade.get_object("processedSets").append(row)
+
+		return True
+
+	def on_btnCalculateAccuracy_click_event(self, event):
+		threshold_error = False
+		threshold = 0
+		try:
+			threshold = float(self.glade.get_object("txtThreshold").get_text())
+		except ValueError:
+			threshold_error = True
+
+		selection_error = False
+		target_directory = ''
+		try:
+			(model, pathlist) = self.glade.get_object("trvChoose").get_selection().get_selected_rows()
+			for path in pathlist:
+				tree_iter = model.get_iter(path)
+				target_directory = model.get_value(tree_iter, 8)
+		except Exception:
+			selection_error = True
+
+		if threshold_error is False and selection_error is False:
+			self.progress_bar_window.show_all()
+			progress_bar = self.glade.get_object("progressBar")
+			thread = threading.Thread(
+				target=self.calculate,
+				args=(progress_bar, target_directory, threshold)
+			)
+			thread.start()
+
+	def calculate(self, progress_bar, target_directory, threshold):
+		generate_result(target_directory, threshold, progress_bar)
+		accuracy = calculate_accuracy(target_directory)
+		print accuracy
+
+		self.progress_bar_window.hide()
+
+		return True
 
 	def on_chooserWindow_delete_event(self, widget, event):
 		self.chooser_window.hide()

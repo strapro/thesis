@@ -2,7 +2,11 @@ import csv
 import os
 
 
-def generate_result(target_directory, threshold):
+def generate_result(target_directory, threshold, progress_bar=None):
+
+	if progress_bar is not None:
+		progress_bar.set_text("Calculating accuracy")
+		progress_bar.set_fraction(0)
 
 	result_file = open(target_directory+'/results.csv', 'w')
 	result_file.truncate()
@@ -17,8 +21,16 @@ def generate_result(target_directory, threshold):
 	with open('MSRParaphraseCorpus/msr_paraphrase_train.txt', 'r') as f:
 		next(f)  # skip headers
 		reader = csv.reader(f, delimiter='\t')
+
+		directories_len = len(list(reader))
+		f.seek(0)
 		for result, id1, id2, string1, string2 in reader:
 			i += 1
+			if progress_bar is not None:
+				progress_bar.pulse()
+				fraction = i / float(directories_len)
+				progress_bar.set_fraction(fraction)
+
 			try:
 				with open(target_directory+'/'+str(i) + '/ferret_result.txt', 'r') as ferret_output:
 					ferret_output_reader = csv.reader(ferret_output, delimiter=';')
