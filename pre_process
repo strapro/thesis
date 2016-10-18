@@ -9,7 +9,7 @@ from scripts.accuracy_calculator import calculate_accuracy
 from scripts.corpus_pre_processor import pre_process_corpus
 from scripts.corpus_splitter import split_corpus
 from scripts.ferret_executer import execute_ferret
-from scripts.result_generator import generate_result
+from scripts.result_generator import *
 from scripts.settings_helper import *
 
 import os
@@ -35,6 +35,7 @@ class PreProcessGTK:
 		self.process_settings_window = self.glade.get_object("processSettingsWindow")
 		self.chooser_window = self.glade.get_object("chooserWindow")
 		self.progress_bar_window = self.glade.get_object("progressBarWindow")
+		self.results_window = self.glade.get_object("resultsWindow")
 
 		self.main_window.show_all()
 
@@ -119,6 +120,7 @@ class PreProcessGTK:
 	# chooserWindow=====================================================================================================
 
 	def on_chooserWindow_load_event(self, event):
+		self.glade.get_object("processedSets").clear()
 		for parsedDirectory in next(os.walk('splitted_parsed_files'))[1]:
 			extracted_settings = directory_to_settings(parsedDirectory)
 			directory_time = os.stat('splitted_parsed_files/' + parsedDirectory).st_mtime
@@ -159,9 +161,19 @@ class PreProcessGTK:
 	def calculate(self, progress_bar, target_directory, threshold):
 		generate_result(target_directory, threshold, progress_bar)
 		accuracy = calculate_accuracy(target_directory)
-		print accuracy
+
+		self.glade.get_object("lblPrecision").set_text(str(round(accuracy['precision'], 4)))
+		self.glade.get_object("lblAccuracy").set_text(str(round(accuracy['accuracy'], 4)))
+		self.glade.get_object("lblRecall").set_text(str(round(accuracy['recall'], 4)))
+		self.glade.get_object("lblFMeasure").set_text(str(round(accuracy['f_measure'], 4)))
+
+		self.glade.get_object("resultsSet").clear()
+		rows = generate_list_rows(target_directory, threshold)
+		for row in rows:
+			self.glade.get_object("resultsSet").append(row)
 
 		self.progress_bar_window.hide()
+		self.results_window.show_all()
 
 		return True
 
@@ -169,6 +181,12 @@ class PreProcessGTK:
 		self.chooser_window.hide()
 		return True
 
+	# resultsWindow=====================================================================================================
+
+
+	def on_resultsWindow_delete_event(self, widget, event):
+		self.results_window.hide()
+		return True
 
 if __name__ == "__main__":
 	try:

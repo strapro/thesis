@@ -716,6 +716,305 @@ Efstratios Provatopoulos</property>
       </object>
     </child>
   </object>
+  <object class="GtkListStore" id="resultsSet">
+    <columns>
+      <!-- column-name sentence1 -->
+      <column type="gchararray"/>
+      <!-- column-name sentence2 -->
+      <column type="gchararray"/>
+      <!-- column-name correctly_identified -->
+      <column type="gchararray"/>
+      <!-- column-name is_plagiarism_actual -->
+      <column type="gchararray"/>
+      <!-- column-name is_plagiarism_predicted -->
+      <column type="gchararray"/>
+      <!-- column-name sentence1_parsed -->
+      <column type="gchararray"/>
+      <!-- column-name sentence2_parsed -->
+      <column type="gchararray"/>
+    </columns>
+  </object>
+  <object class="GtkWindow" id="resultsWindow">
+    <property name="can_focus">False</property>
+    <property name="title" translatable="yes">Results</property>
+    <property name="window_position">mouse</property>
+    <signal name="delete-event" handler="on_resultsWindow_delete_event" swapped="no"/>
+    <child>
+      <object class="GtkTable" id="table9">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <child>
+          <object class="GtkTable" id="table11">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="n_rows">2</property>
+            <property name="column_spacing">15</property>
+            <property name="row_spacing">15</property>
+            <child>
+              <object class="GtkScrolledWindow" id="scrolledwindow2">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="hscrollbar_policy">automatic</property>
+                <property name="vscrollbar_policy">automatic</property>
+                <child>
+                  <object class="GtkTreeView" id="trvResults">
+                    <property name="width_request">900</property>
+                    <property name="height_request">300</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="model">resultsSet</property>
+                    <property name="enable_search">False</property>
+                    <property name="enable_grid_lines">both</property>
+                    <child>
+                      <object class="GtkTreeViewColumn" id="sentence1">
+                        <property name="fixed_width">300</property>
+                        <property name="min_width">300</property>
+                        <property name="max_width">300</property>
+                        <property name="title" translatable="yes">Sentence 1</property>
+                        <property name="clickable">True</property>
+                        <property name="sort_column_id">0</property>
+                        <child>
+                          <object class="GtkCellRendererText" id="cellrenderertext1">
+                            <property name="width">300</property>
+                            <property name="wrap_mode">word</property>
+                            <property name="wrap_width">290</property>
+                          </object>
+                          <attributes>
+                            <attribute name="text">0</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkTreeViewColumn" id="sentence2">
+                        <property name="fixed_width">300</property>
+                        <property name="min_width">300</property>
+                        <property name="max_width">300</property>
+                        <property name="title" translatable="yes">Sentence 2</property>
+                        <property name="clickable">True</property>
+                        <property name="sort_column_id">1</property>
+                        <child>
+                          <object class="GtkCellRendererText" id="cellrenderertext12">
+                            <property name="width">300</property>
+                            <property name="wrap_mode">word</property>
+                            <property name="wrap_width">290</property>
+                          </object>
+                          <attributes>
+                            <attribute name="text">1</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkTreeViewColumn" id="correctly_identified">
+                        <property name="title" translatable="yes">Correctly identified</property>
+                        <property name="clickable">True</property>
+                        <property name="sort_column_id">2</property>
+                        <child>
+                          <object class="GtkCellRendererText" id="cellrenderertext13"/>
+                          <attributes>
+                            <attribute name="text">2</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkTreeViewColumn" id="is_plagiarism">
+                        <property name="title" translatable="yes">Is plagiarism</property>
+                        <property name="clickable">True</property>
+                        <property name="sort_column_id">3</property>
+                        <child>
+                          <object class="GtkCellRendererText" id="cellrenderertext14"/>
+                          <attributes>
+                            <attribute name="text">3</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkTreeViewColumn" id="is_plagiarism_predicted">
+                        <property name="title" translatable="yes">Prediction</property>
+                        <property name="clickable">True</property>
+                        <property name="sort_column_id">4</property>
+                        <child>
+                          <object class="GtkCellRendererText" id="cellrenderertext15"/>
+                          <attributes>
+                            <attribute name="text">4</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkTreeViewColumn" id="sentence1_parsed">
+                        <property name="fixed_width">300</property>
+                        <property name="min_width">300</property>
+                        <property name="max_width">300</property>
+                        <property name="title" translatable="yes">Sentence 1 (parsed)</property>
+                        <property name="clickable">True</property>
+                        <property name="sort_column_id">5</property>
+                        <child>
+                          <object class="GtkCellRendererText" id="cellrenderertext16">
+                            <property name="width">300</property>
+                            <property name="wrap_mode">word</property>
+                            <property name="wrap_width">290</property>
+                          </object>
+                          <attributes>
+                            <attribute name="text">5</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkTreeViewColumn" id="sentence_2_parsed">
+                        <property name="fixed_width">300</property>
+                        <property name="min_width">300</property>
+                        <property name="max_width">300</property>
+                        <property name="title" translatable="yes">Sentence 2 (parsed)</property>
+                        <property name="clickable">True</property>
+                        <property name="sort_column_id">6</property>
+                        <child>
+                          <object class="GtkCellRendererText" id="cellrenderertext17">
+                            <property name="width">300</property>
+                            <property name="wrap_mode">word</property>
+                            <property name="wrap_width">290</property>
+                          </object>
+                          <attributes>
+                            <attribute name="text">6</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="top_attach">1</property>
+                <property name="bottom_attach">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkTable" id="table12">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="n_rows">2</property>
+                <property name="n_columns">4</property>
+                <property name="column_spacing">15</property>
+                <property name="row_spacing">15</property>
+                <child>
+                  <object class="GtkLabel" id="label11">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="xalign">0</property>
+                    <property name="label" translatable="yes">Precision:</property>
+                  </object>
+                  <packing>
+                    <property name="x_options">GTK_FILL</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lblPrecision">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="xalign">0</property>
+                    <property name="label" translatable="yes">0.8067</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label13">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="xalign">0</property>
+                    <property name="label" translatable="yes">Recall:</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="right_attach">3</property>
+                    <property name="x_options">GTK_FILL</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lblRecall">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="xalign">0</property>
+                    <property name="label" translatable="yes">0.3245</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">3</property>
+                    <property name="right_attach">4</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label19">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="xalign">0</property>
+                    <property name="label" translatable="yes">Accuracy:</property>
+                  </object>
+                  <packing>
+                    <property name="top_attach">1</property>
+                    <property name="bottom_attach">2</property>
+                    <property name="x_options">GTK_FILL</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lblAccuracy">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="xalign">0</property>
+                    <property name="label" translatable="yes">0.5467</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
+                    <property name="top_attach">1</property>
+                    <property name="bottom_attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label16">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="xalign">0</property>
+                    <property name="label" translatable="yes">F-measure:</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="right_attach">3</property>
+                    <property name="top_attach">1</property>
+                    <property name="bottom_attach">2</property>
+                    <property name="x_options">GTK_FILL</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lblFMeasure">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="xalign">0</property>
+                    <property name="label" translatable="yes">0.4567</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">3</property>
+                    <property name="right_attach">4</property>
+                    <property name="top_attach">1</property>
+                    <property name="bottom_attach">2</property>
+                  </packing>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x_padding">15</property>
+            <property name="y_padding">15</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
   <object class="GtkListStore" id="similarityMeasures">
     <columns>
       <!-- column-name name1 -->
