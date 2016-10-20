@@ -131,6 +131,12 @@ class PreProcessGTK:
 
 		return True
 
+	def on_rdOriginal_select(self, event):
+		self.glade.get_object("scrolledwindow1").hide()
+
+	def on_rdParsed_select(self, event):
+		self.glade.get_object("scrolledwindow1").show_all()
+
 	def on_btnCalculateAccuracy_click_event(self, event):
 		threshold_error = False
 		threshold = 0
@@ -142,10 +148,13 @@ class PreProcessGTK:
 		selection_error = False
 		target_directory = ''
 		try:
-			(model, pathlist) = self.glade.get_object("trvChoose").get_selection().get_selected_rows()
-			for path in pathlist:
-				tree_iter = model.get_iter(path)
-				target_directory = model.get_value(tree_iter, 8)
+			if self.glade.get_object("rdParsed").get_active():
+				(model, pathlist) = self.glade.get_object("trvChoose").get_selection().get_selected_rows()
+				for path in pathlist:
+					tree_iter = model.get_iter(path)
+					target_directory = model.get_value(tree_iter, 8)
+			else:
+				target_directory = 'splitted_files'
 		except Exception:
 			selection_error = True
 
@@ -173,6 +182,7 @@ class PreProcessGTK:
 			self.glade.get_object("resultsSet").append(row)
 
 		self.progress_bar_window.hide()
+
 		self.results_window.show_all()
 
 		return True

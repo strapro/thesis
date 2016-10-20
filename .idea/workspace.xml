@@ -5,7 +5,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pre_process" afterPath="$PROJECT_DIR$/pre_process" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pre_process_gtk2.glade" afterPath="$PROJECT_DIR$/pre_process_gtk2.glade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/result_generator.py" afterPath="$PROJECT_DIR$/scripts/result_generator.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/splitted_files/results.csv" afterPath="$PROJECT_DIR$/splitted_files/results.csv" />
     </list>
     <ignored path="thesis.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="pre_process" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pre_process" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pre_process">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="816">
-              <caret line="187" column="34" selection-start-line="187" selection-start-column="34" selection-end-line="187" selection-end-column="34" />
+            <state relative-caret-position="936">
+              <caret line="196" column="50" selection-start-line="196" selection-start-column="50" selection-end-line="196" selection-end-column="50" />
               <folding>
                 <element signature="n#!!doc" expanded="false" />
                 <element signature="e#47#59#0" expanded="true" />
@@ -43,23 +43,20 @@
                 <element signature="e#3472#3822#0" expanded="false" />
                 <element signature="e#3891#3940#0" expanded="false" />
                 <element signature="e#4110#4631#0" expanded="false" />
-                <element signature="e#4690#5455#0" expanded="false" />
-                <element signature="e#4916#5121#0" expanded="false" />
-                <element signature="e#5036#5121#0" expanded="false" />
-                <element signature="e#5232#5455#0" expanded="false" />
-                <element signature="e#6290#6330#0" expanded="false" />
-                <element signature="e#6581#6654#0" expanded="false" />
-                <element signature="e#6588#6620#0" expanded="false" />
+                <element signature="e#4874#5746#0" expanded="false" />
+                <element signature="e#6582#6622#0" expanded="false" />
+                <element signature="e#6873#6946#0" expanded="false" />
+                <element signature="e#6880#6912#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="result_generator.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="result_generator.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/result_generator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="38" column="49" selection-start-line="38" selection-start-column="49" selection-end-line="38" selection-end-column="49" />
+            <state relative-caret-position="897">
+              <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -70,7 +67,7 @@
       <file leaf-file-name="corpus_pre_processor.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/corpus_pre_processor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
+            <state relative-caret-position="4752">
               <caret line="271" column="65" selection-start-line="271" selection-start-column="33" selection-end-line="271" selection-end-column="65" />
               <folding />
             </state>
@@ -124,8 +121,8 @@
         <option value="$PROJECT_DIR$/scripts/corpus_pre_processor.py" />
         <option value="$PROJECT_DIR$/pre_process_gtk2.glade" />
         <option value="$PROJECT_DIR$/scripts/accuracy_calculator.py" />
-        <option value="$PROJECT_DIR$/pre_process" />
         <option value="$PROJECT_DIR$/scripts/result_generator.py" />
+        <option value="$PROJECT_DIR$/pre_process" />
       </list>
     </option>
   </component>
@@ -179,6 +176,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -213,8 +212,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -624,7 +621,14 @@
       <option name="project" value="LOCAL" />
       <updated>1476730952771</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="results window">
+      <created>1476816618484</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1476816618484</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -686,11 +690,12 @@
     <MESSAGE value="added option to skip ferret check" />
     <MESSAGE value="auto results" />
     <MESSAGE value="integrate functions with GUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="integrate functions with GUI" />
+    <MESSAGE value="results window" />
+    <option name="LAST_COMMIT_MESSAGE" value="results window" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="25" />
+      <option name="time" value="27" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -762,13 +767,13 @@
           <second_editor />
         </state>
       </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="18" selection-end-column="4" />
         </state>
-      </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/ntlk_sandbox.py" />
@@ -951,10 +956,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="771">
           <caret line="124" column="48" selection-start-line="124" selection-start-column="36" selection-end-line="124" selection-end-column="48" />
-          <folding>
-            <element signature="e#349#1316#0" expanded="false" />
-            <element signature="e#1340#1564#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -962,7 +963,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="12" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -970,13 +970,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="15" column="19" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/corpus_pre_processor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
+        <state relative-caret-position="4752">
           <caret line="271" column="65" selection-start-line="271" selection-start-column="33" selection-end-line="271" selection-end-column="65" />
           <folding />
         </state>
@@ -986,10 +985,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="393">
           <caret line="763" column="53" selection-start-line="763" selection-start-column="43" selection-end-line="763" selection-end-column="53" />
-          <folding>
-            <element signature="n#child#0;n#object#0;n#child#0;n#object#0;n#child#0;n#object#0;n#child#0;n#object#0;n#child#0;n#object#6;n#interface#0;n#!!top" expanded="false" />
-            <element signature="n#child#1;n#object#0;n#child#0;n#object#0;n#child#0;n#object#0;n#child#0;n#object#0;n#child#0;n#object#6;n#interface#0;n#!!top" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1001,10 +997,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/result_generator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="897">
+          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pre_process">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="187" column="34" selection-start-line="187" selection-start-column="34" selection-end-line="187" selection-end-column="34" />
+        <state relative-caret-position="936">
+          <caret line="196" column="50" selection-start-line="196" selection-start-column="50" selection-end-line="196" selection-end-column="50" />
           <folding>
             <element signature="n#!!doc" expanded="false" />
             <element signature="e#47#59#0" expanded="true" />
@@ -1017,23 +1023,10 @@
             <element signature="e#3472#3822#0" expanded="false" />
             <element signature="e#3891#3940#0" expanded="false" />
             <element signature="e#4110#4631#0" expanded="false" />
-            <element signature="e#4690#5455#0" expanded="false" />
-            <element signature="e#4916#5121#0" expanded="false" />
-            <element signature="e#5036#5121#0" expanded="false" />
-            <element signature="e#5232#5455#0" expanded="false" />
-            <element signature="e#6290#6330#0" expanded="false" />
-            <element signature="e#6581#6654#0" expanded="false" />
-            <element signature="e#6588#6620#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/result_generator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="38" column="49" selection-start-line="38" selection-start-column="49" selection-end-line="38" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#4874#5746#0" expanded="false" />
+            <element signature="e#6582#6622#0" expanded="false" />
+            <element signature="e#6873#6946#0" expanded="false" />
+            <element signature="e#6880#6912#0" expanded="false" />
           </folding>
         </state>
       </provider>
