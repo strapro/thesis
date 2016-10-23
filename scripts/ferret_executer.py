@@ -6,7 +6,7 @@ def execute_ferret(target_directory, force_overwrite=True, verbosity='silent', p
 	if verbosity != 'silent':
 		stdout.write("Executing ferret. Please wait.\n")
 
-	command = 'ferret/src/ferret'
+	command = 'bin/ferret'
 
 	if progress_bar is not None:
 		progress_bar.set_text("Executing ferret")
