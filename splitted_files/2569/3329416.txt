@@ -1,1 +1,0 @@
-The firewall in the current Windows XP was known as the Internet Connection Firewall (ICF).

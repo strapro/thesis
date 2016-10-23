@@ -1,1 +1,0 @@
-SP2 is basically about security enhancements to Windows, such as the improved Internet Connection Firewall (ICF).

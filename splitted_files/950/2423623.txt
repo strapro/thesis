@@ -1,1 +1,0 @@
-That exploit works on unpatched Windows 2000 machines with Service Pack 3 and 4.

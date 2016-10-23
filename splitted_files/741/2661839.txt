@@ -1,1 +1,0 @@
-Panther Server also includes an updated release of Apache, along with Apache Tomcat and Apache Axis for creating powerful web services.

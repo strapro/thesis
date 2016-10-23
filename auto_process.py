@@ -18,8 +18,8 @@ def execute(settings, i):
 
 	print str(i) + "/" + str(total)
 	directory_name = settings_to_directory(settings)
-	pre_process_corpus(settings, 'splitted_parsed_files/' + directory_name, force_overwrite, verbosity)
-	execute_ferret('splitted_parsed_files/' + directory_name, force_overwrite, verbosity)
+	pre_process_corpus(settings, '/splitted_parsed_files/' + directory_name, force_overwrite, verbosity)
+	execute_ferret('/splitted_parsed_files/' + directory_name, force_overwrite, verbosity)
 
 tags = ['VERB', 'NOUN', 'ADJ', 'ADV', 'ADP', 'CONJ']
 settings_possible_values = {

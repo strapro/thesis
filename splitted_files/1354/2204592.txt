@@ -1,1 +1,0 @@
-Sun Microsystems Inc. on Thursday said it had added 100 new third-party systems and 100 new components to its Hardware Compatibility List for the Solaris x86 operating system Platform Edition.

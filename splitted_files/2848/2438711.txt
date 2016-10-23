@@ -1,1 +1,0 @@
-The Java Enterprise System bundles a slew of Sun software for a yearly subscription of $100 per employee.

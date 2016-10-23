@@ -1,1 +1,0 @@
-The second vulnerability is a result of IE not implementing a block on a file download dialog box.

@@ -1,1 +1,0 @@
-Both Counterpane and iDefense contend that the exploit works effectively against Windows 2000 systems running Service Pack 3 and 4.

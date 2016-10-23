@@ -1,1 +1,0 @@
-Token-issuing framework provides capabilities that build on WS-Security and define extensions to request and issue security tokens and to manage trust relationships and secure conversations.

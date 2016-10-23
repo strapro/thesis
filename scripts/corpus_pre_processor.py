@@ -5,7 +5,11 @@ import itertools
 import nltk
 import shutil
 import redis
+import multiprocessing
 from sys import stdout
+
+
+my_progress_bar = None
 
 
 class PreProcessor(object):
@@ -231,7 +235,68 @@ class PreProcessor(object):
 		return out
 
 
+def execute_pre_process(settings, parsed_directory_name, directory, i, directories_len, verbosity):
+	files = next(os.walk('/splitted_files/' + directory))[2]
+	first_sentence = False
+	second_sentence = False
+	file_name1 = 'undefined1'
+	file_name2 = 'undefined2'
+	if files[0] != "ferret_result.txt":
+		file_name1 = files[0]
+		with open('/splitted_files/' + directory + '/' + files[0], 'r') as my_file:
+			first_sentence = my_file.read().replace('\n', '')
+	if files[1] != "ferret_result.txt":
+		file_name2 = files[1]
+		with open('/splitted_files/' + directory + '/' + files[1], 'r') as my_file:
+			second_sentence = my_file.read().replace('\n', '')
+	if first_sentence is False:
+		file_name1 = files[2]
+		with open('/splitted_files/' + directory + '/' + files[2], 'r') as my_file:
+			first_sentence = my_file.read().replace('\n', '')
+	if second_sentence is False:
+		file_name2 = files[2]
+		with open('/splitted_files/' + directory + '/' + files[2], 'r') as my_file:
+			second_sentence = my_file.read().replace('\n', '')
+
+	pre_processor = PreProcessor(settings)
+	(final_words_first_sentence, final_words_second_sentence) = pre_processor.pre_process(first_sentence, second_sentence)
+
+	os.makedirs(parsed_directory_name + '/' + directory)
+
+	target1 = open(parsed_directory_name + '/' + directory + '/' + file_name1, 'w')
+	target1.truncate()
+	target1.write(" ".join(word.encode('utf8') for word, pos in final_words_first_sentence))
+	target1.close()
+	target2 = open(parsed_directory_name + '/' + directory + '/' + file_name2, 'w')
+	target2.truncate()
+	target2.write(" ".join(word.encode('utf8') for word, pos in final_words_second_sentence))
+	target2.close()
+
+	return i, directories_len, verbosity
+
+
+def log_process_result(result):
+	(i, directories_len, verbosity) = result
+	if verbosity != 'silent':
+		stdout.write("\r" + str(i) + '/' + str(directories_len))
+		stdout.flush()
+
+	global my_progress_bar
+
+	if my_progress_bar is not None:
+		my_progress_bar.pulse()
+		fraction = 1 / float(directories_len)
+		new_fraction = my_progress_bar.get_fraction() + fraction
+		if new_fraction <= 1:
+			my_progress_bar.set_fraction(new_fraction)
+
+
 def pre_process_corpus(settings, parsed_directory_name, force_overwrite=True, verbosity='silent', progress_bar=None):
+	global my_progress_bar
+
+	my_progress_bar = progress_bar
+
+	p = multiprocessing.Pool(4)
 	if verbosity != 'silent':
 		stdout.write("Executing pre processing. Please wait.\n")
 
@@ -248,55 +313,14 @@ def pre_process_corpus(settings, parsed_directory_name, force_overwrite=True, ve
 	os.makedirs(parsed_directory_name)
 
 	i = 0
-	directories = next(os.walk('splitted_files'))[1]
+	directories = next(os.walk('/splitted_files'))[1]
 	directories_len = len(directories)
 	for directory in directories:
 		i += 1
-		if verbosity != 'silent':
-			stdout.write("\r" + str(i) + '/' + str(directories_len))
-			stdout.flush()
+		p.apply_async(execute_pre_process, args=(settings, parsed_directory_name, directory, i, directories_len, verbosity,), callback=log_process_result)
 
-		if progress_bar is not None:
-			progress_bar.pulse()
-			fraction = i/float(directories_len)
-			progress_bar.set_fraction(fraction)
-
-		files = next(os.walk('splitted_files/'+directory))[2]
-		first_sentence = False
-		second_sentence = False
-		file_name1 = 'undefined1'
-		file_name2 = 'undefined2'
-		if files[0] != "ferret_result.txt":
-			file_name1 = files[0]
-			with open('splitted_files/'+directory+'/'+files[0], 'r') as my_file:
-				first_sentence = my_file.read().replace('\n', '')
-		if files[1] != "ferret_result.txt":
-			file_name2 = files[1]
-			with open('splitted_files/'+directory+'/'+files[1], 'r') as my_file:
-				second_sentence = my_file.read().replace('\n', '')
-		if first_sentence is False:
-			file_name1 = files[2]
-			with open('splitted_files/' + directory + '/' + files[2], 'r') as my_file:
-				first_sentence = my_file.read().replace('\n', '')
-		if second_sentence is False:
-			file_name2 = files[2]
-			with open('splitted_files/' + directory + '/' + files[2], 'r') as my_file:
-				second_sentence = my_file.read().replace('\n', '')
-
-		pre_processor = PreProcessor(settings)
-		(final_words_first_sentence, final_words_second_sentence) = pre_processor.pre_process(first_sentence, second_sentence)
-
-		os.makedirs(parsed_directory_name+'/'+directory)
-
-		target1 = open(parsed_directory_name+'/'+directory+'/'+file_name1, 'w')
-		target1.truncate()
-		target1.write(" ".join(word.encode('utf8') for word, pos in final_words_first_sentence))
-		target1.close()
-
-		target2 = open(parsed_directory_name+'/'+directory+'/'+file_name2, 'w')
-		target2.truncate()
-		target2.write(" ".join(word.encode('utf8') for word, pos in final_words_second_sentence))
-		target2.close()
+	p.close()
+	p.join()
 
 	if verbosity != 'silent':
 		stdout.write("\n")

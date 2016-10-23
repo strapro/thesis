@@ -1,1 +1,0 @@
-The company updated the MySQL 4.0 software with the ability to run on the HP-UX 11i Unix operating system and Linux on servers equipped with Intel's 64-bit Itanium 2 processor.

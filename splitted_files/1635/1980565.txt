@@ -1,1 +1,0 @@
-The new WPAN standard uses the 2.4-GHz unlicensed frequency band and specifies raw data rates of 11M, 22M, 33M, 44M and 55Mbit/sec.

@@ -1,1 +1,0 @@
-The rovers act as robotic geologists, moving on six wheels.

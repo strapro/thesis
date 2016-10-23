@@ -1,1 +1,0 @@
-Starting on Saturday, every computer infected with MSBlast is expected to start flooding Microsoft's Windows Update service with legitimate-looking connection requests.
