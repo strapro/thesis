@@ -1,1 +1,0 @@
-A base configuration with a 2.0GHz Intel Celeron processor, 128M bytes of memory, a 40G-byte hard drive, and a CD-ROM drive costs US$729.

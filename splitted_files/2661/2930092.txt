@@ -1,1 +1,0 @@
-Already in beta, Veritas' File System, Volume Manager and Cluster Server products for SuSE Enterprise Linux Server should drop into the hands of customers in early 2004.

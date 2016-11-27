@@ -1,1 +1,0 @@
-The S3C2440 CPU supports major operating systems including Microsoft Windows CE/Pocket PC, Palm OS, Symbian, and Linux.

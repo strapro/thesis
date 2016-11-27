@@ -22,7 +22,7 @@ def execute(settings_to_execute, executing_i):
 	verbosity = 'silent'
 	force_overwrite = False
 	total = 2526
-	
+
 	print "Executing " + str(executing_i) + "/" + str(total)
 
 	new_directory_name = settings_to_directory(settings_to_execute)
@@ -72,7 +72,7 @@ def log_auto_process_result(result):
 			# print 'Error. Executing ferret and retrying '
 			# execute_single_ferret(str(e))
 			# log_auto_process_result(directory_name, jaccard_threshold, result_file_writer)
-	
+
 	os.fsync(result_file.fileno())
 	result_file.close()
 
@@ -121,7 +121,9 @@ if __name__ == '__main__':
 		"type_of_replacement": ["keep_unique"]  # ["random", "keep_unique", "keep_other"]
 	}
 
-	p = multiprocessing.Pool(2)
+if __name__ == '__main__':
+	i = 0
+	p = multiprocessing.Pool(4)
 	for remove_stop_words in settings_possible_values['remove_stop_words']:
 		for permitted_tags in settings_possible_values['permitted_tags']:
 			for perform_ordering in settings_possible_values['perform_ordering']:

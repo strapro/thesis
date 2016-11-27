@@ -1,1 +1,0 @@
-The patch also fixes a vulnerability that results because IE does not implement an appropriate block on a file download dialog box.

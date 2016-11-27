@@ -1,1 +1,0 @@
-SCO said it terminated Sequent's contract due to improper transfer of the company's source code and development methods into Linux.

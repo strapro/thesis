@@ -1,1 +1,0 @@
-The flaw involves the Remote Procedure Call (RPC) protocol, which deals with inter-computer communications.

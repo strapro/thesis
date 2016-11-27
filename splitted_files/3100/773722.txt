@@ -1,1 +1,0 @@
-Messagelabs, which runs outsourced e-mail servers for 700,000 customers around the world, has labeled the worm high risk and reports more than 31,000 infections in 120 countries.

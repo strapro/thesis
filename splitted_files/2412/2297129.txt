@@ -1,1 +1,0 @@
-It said FirstEnergy determined that a contractor had established an unprotected computer connection to its corporate network that allowed the so-called ``Slammer'' worm to spread internally.

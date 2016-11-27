@@ -1,1 +1,0 @@
-Additionally, the new Server Admin tool is intended to make it easy for system administrators to set up, manage and monitor the services built into Panther Server.

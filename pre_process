@@ -24,6 +24,7 @@ class PreProcessGTK:
 
 	__verbosity = 'silent'
 	__force_overwrite = True
+	__limit = 1000
 
 	def __init__(self):
 		self.gladefile = "pre_process_gtk2.glade"
@@ -52,8 +53,8 @@ class PreProcessGTK:
 		thread.start()
 
 	def splitter(self, progress_bar):
-		split_corpus(self.__verbosity)
-		execute_ferret('splitted_files', self.__force_overwrite, self.__verbosity, progress_bar)
+		split_corpus(self.__verbosity, self.__limit)
+		execute_ferret('/splitted_files', self.__force_overwrite, self.__verbosity, progress_bar)
 
 		self.progress_bar_window.hide()
 
@@ -106,8 +107,8 @@ class PreProcessGTK:
 
 	def parser(self, progress_bar, settings):
 		target_directory = settings_to_directory(settings)
-		pre_process_corpus(settings, 'splitted_parsed_files/' + target_directory, self.__force_overwrite, self.__verbosity, progress_bar)
-		execute_ferret('splitted_parsed_files/' + target_directory, self.__force_overwrite, self.__verbosity, progress_bar)
+		pre_process_corpus(settings, '/splitted_parsed_files/' + target_directory, self.__force_overwrite, self.__verbosity, progress_bar)
+		execute_ferret('/splitted_parsed_files/' + target_directory, self.__force_overwrite, self.__verbosity, progress_bar)
 
 		self.progress_bar_window.hide()
 
@@ -121,11 +122,11 @@ class PreProcessGTK:
 
 	def on_chooserWindow_load_event(self, event):
 		self.glade.get_object("processedSets").clear()
-		for parsedDirectory in next(os.walk('splitted_parsed_files'))[1]:
+		for parsedDirectory in next(os.walk('/splitted_parsed_files'))[1]:
 			extracted_settings = directory_to_settings(parsedDirectory)
-			directory_time = os.stat('splitted_parsed_files/' + parsedDirectory).st_mtime
+			directory_time = os.stat('/splitted_parsed_files/' + parsedDirectory).st_mtime
 			directory_date = time.strftime("%Y-%m-%d %H:%M", time.localtime(directory_time))
-			row = [directory_date] + list(extracted_settings.values()) + ['splitted_parsed_files/' + parsedDirectory]
+			row = [directory_date] + list(extracted_settings.values()) + ['/splitted_parsed_files/' + parsedDirectory]
 
 			self.glade.get_object("processedSets").append(row)
 
@@ -154,7 +155,7 @@ class PreProcessGTK:
 					tree_iter = model.get_iter(path)
 					target_directory = model.get_value(tree_iter, 8)
 			else:
-				target_directory = 'splitted_files'
+				target_directory = '/splitted_files'
 		except Exception:
 			selection_error = True
 
@@ -168,7 +169,7 @@ class PreProcessGTK:
 			thread.start()
 
 	def calculate(self, progress_bar, target_directory, threshold):
-		generate_result(target_directory, threshold, progress_bar)
+		generate_result(target_directory, threshold, self.__limit, progress_bar)
 		accuracy = calculate_accuracy(target_directory)
 
 		self.glade.get_object("lblPrecision").set_text(str(round(accuracy['precision'], 4)))
@@ -177,7 +178,7 @@ class PreProcessGTK:
 		self.glade.get_object("lblFMeasure").set_text(str(round(accuracy['f_measure'], 4)))
 
 		self.glade.get_object("resultsSet").clear()
-		rows = generate_list_rows(target_directory, threshold)
+		rows = generate_list_rows(target_directory, threshold, self.__limit)
 		for row in rows:
 			self.glade.get_object("resultsSet").append(row)
 

@@ -1,1 +1,0 @@
-But this could happen with any document format that supports VBA, including Word, Excel or PowerPoint.

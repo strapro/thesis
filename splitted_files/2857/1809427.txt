@@ -1,1 +1,0 @@
-The compilers are available in two flavors: the Intel C++ Compiler for Microsoft eMbedded Visual C++ retails for USD$399 and is intended for application development use.

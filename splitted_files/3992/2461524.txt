@@ -1,1 +1,0 @@
-The updated 64-bit operating system, Windows XP 64-Bit Edition for 64-Bit Extended Systems, will run natively on AMD Athlon 64 processor-powered desktops and AMD Opteron processor-powered workstations.

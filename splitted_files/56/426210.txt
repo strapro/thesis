@@ -1,1 +1,0 @@
-IBM said the Rational products were also integrated with Rational PurifyPlus, which allows developers to work in Java, Visual C# and VisualBasic .Net.

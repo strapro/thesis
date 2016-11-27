@@ -1,1 +1,0 @@
-The company reported that it terminated Sequent's Unix contract for improper transfer of source code and development methods into Linux.

@@ -3,7 +3,7 @@ import csv
 from sys import stdout
 
 
-def split_corpus(verbosity='silent'):
+def split_corpus(verbosity='silent', limit=False):
 	if verbosity != 'silent':
 		stdout.write("Splitting corpus. Please wait.\n")
 	i = 0
@@ -12,8 +12,10 @@ def split_corpus(verbosity='silent'):
 		reader = csv.reader(f, delimiter='\t')
 		for result, id1, id2, string1, string2 in reader:
 			i += 1
+			if limit is not False and i > limit:
+				return 1
 
-			directory = 'splitted_files/'+str(i)
+			directory = '/splitted_files/'+str(i)
 			if not os.path.exists(directory):
 				os.makedirs(directory)
 

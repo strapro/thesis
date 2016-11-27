@@ -1,1 +1,0 @@
-The first vulnerability is a buffer overrun that results from IE's failure to properly determine an object type returned from a Web server.
