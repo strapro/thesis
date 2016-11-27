@@ -193,7 +193,11 @@ class PreProcessor(object):
 					# The largest score that lch can possible return is 3.6375861597263857
 					# In order to normalize the value let's divide by it
 					# This value was acquired experimentally
-					d = nltk.corpus.wordnet.lch_similarity(sense1, sense2)/3.6375861597263857
+					d = nltk.corpus.wordnet.lch_similarity(sense1, sense2)
+					if d is not None:
+						d = d/3.6375861597263857
+					else:
+						d = 0
 				elif similarity_measure == 'path':
 					d = nltk.corpus.wordnet.path_similarity(sense1, sense2)
 				elif similarity_measure == 'wup':

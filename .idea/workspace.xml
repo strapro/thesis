@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="05dcbd8b-fde4-4f38-a7ce-1dd337fa782f" name="Default" comment="">
+    <list default="true" id="05dcbd8b-fde4-4f38-a7ce-1dd337fa782f" name="Default" comment="allow parsing of default corpus">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pre_process" afterPath="$PROJECT_DIR$/pre_process" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auto_process.py" afterPath="$PROJECT_DIR$/auto_process.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pre_process.py" afterPath="$PROJECT_DIR$/pre_process.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pre_process_gtk2.glade" afterPath="$PROJECT_DIR$/pre_process_gtk2.glade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/splitted_files/results.csv" afterPath="$PROJECT_DIR$/splitted_files/results.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/corpus_pre_processor.py" afterPath="$PROJECT_DIR$/scripts/corpus_pre_processor.py" />
     </list>
     <ignored path="thesis.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,65 +28,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="pre_process" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pre_process">
+      <file leaf-file-name="corpus_splitter.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/scripts/corpus_splitter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="936">
-              <caret line="196" column="50" selection-start-line="196" selection-start-column="50" selection-end-line="196" selection-end-column="50" />
+            <state relative-caret-position="504">
+              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding>
-                <element signature="n#!!doc" expanded="false" />
-                <element signature="e#47#59#0" expanded="true" />
-                <element signature="e#1254#1443#0" expanded="false" />
-                <element signature="e#1482#1653#0" expanded="false" />
-                <element signature="e#1714#1753#0" expanded="false" />
-                <element signature="e#1818#1848#0" expanded="false" />
-                <element signature="e#1906#1921#0" expanded="false" />
-                <element signature="e#2095#3425#0" expanded="false" />
-                <element signature="e#3472#3822#0" expanded="false" />
-                <element signature="e#3891#3940#0" expanded="false" />
-                <element signature="e#4110#4631#0" expanded="false" />
-                <element signature="e#4874#5746#0" expanded="false" />
-                <element signature="e#6582#6622#0" expanded="false" />
-                <element signature="e#6873#6946#0" expanded="false" />
-                <element signature="e#6880#6912#0" expanded="false" />
+                <element signature="e#0#9#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="result_generator.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/result_generator.py">
+      <file leaf-file-name="settings_helper.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/settings_helper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="897">
-              <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="corpus_pre_processor.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/corpus_pre_processor.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4752">
-              <caret line="271" column="65" selection-start-line="271" selection-start-column="33" selection-end-line="271" selection-end-column="65" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="accuracy_calculator.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/accuracy_calculator.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+            <state relative-caret-position="18">
+              <caret line="1" column="23" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -113,8 +86,6 @@
         <option value="$PROJECT_DIR$/scripts/corpus_splitter.py" />
         <option value="$PROJECT_DIR$/scripts/settings_helper.py" />
         <option value="$PROJECT_DIR$/pre_process.py" />
-        <option value="$PROJECT_DIR$/auto_process.py" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/auto_result.csv" />
         <option value="$PROJECT_DIR$/auto_result.py" />
         <option value="$PROJECT_DIR$/scripts/ferret_executer.py" />
@@ -122,7 +93,10 @@
         <option value="$PROJECT_DIR$/pre_process_gtk2.glade" />
         <option value="$PROJECT_DIR$/scripts/accuracy_calculator.py" />
         <option value="$PROJECT_DIR$/scripts/result_generator.py" />
+        <option value="$PROJECT_DIR$/scripts/lsa_executer.py" />
         <option value="$PROJECT_DIR$/pre_process" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/auto_process.py" />
       </list>
     </option>
   </component>
@@ -215,7 +189,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -628,16 +602,23 @@
       <option name="project" value="LOCAL" />
       <updated>1476816618484</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="allow parsing of default corpus">
+      <created>1476988120050</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1476988120050</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="1366" y="24" width="1920" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18177083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32884902" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282365" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925585" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -691,7 +672,8 @@
     <MESSAGE value="auto results" />
     <MESSAGE value="integrate functions with GUI" />
     <MESSAGE value="results window" />
-    <option name="LAST_COMMIT_MESSAGE" value="results window" />
+    <MESSAGE value="allow parsing of default corpus" />
+    <option name="LAST_COMMIT_MESSAGE" value="allow parsing of default corpus" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -700,34 +682,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/splitted_files/results.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/home/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="3" selection-start-line="0" selection-start-column="3" selection-end-line="0" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/ferret_executer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -759,6 +713,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="144">
@@ -766,9 +723,6 @@
           </first_editor>
           <second_editor />
         </state>
-      </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
       </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -895,21 +849,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cache/joblib/scripts/corpus_pre_processor/PreProcessor/__get_similarities/func_code.py" />
     <entry file="file://$PROJECT_DIR$/cache/joblib/scripts/corpus_pre_processor/PreProcessor/__get_similarity/0016e1557e73d6b714d5e38713ad1393/metadata.json" />
-    <entry file="file://$PROJECT_DIR$/dump.rdb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/auto_result.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
@@ -938,20 +877,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/auto_process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="23" column="50" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/settings_helper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="40" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pre_process.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="771">
@@ -959,33 +884,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/ferret_executer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="12" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/corpus_splitter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="15" column="19" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/corpus_pre_processor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4752">
-          <caret line="271" column="65" selection-start-line="271" selection-start-column="33" selection-end-line="271" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pre_process_gtk2.glade">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="393">
           <caret line="763" column="53" selection-start-line="763" selection-start-column="43" selection-end-line="763" selection-end-column="53" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/result_generator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1188">
+          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -993,40 +902,98 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/result_generator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="897">
-          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
+    <entry file="file://$PROJECT_DIR$/scripts/lsa_executer.py" />
+    <entry file="file://$PROJECT_DIR$/dump.rdb">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="LargeFileEditor">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pre_process">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="936">
-          <caret line="196" column="50" selection-start-line="196" selection-start-column="50" selection-end-line="196" selection-end-column="50" />
+        <state relative-caret-position="360">
+          <caret line="138" column="0" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ferret/stylesheet/uhferret.xsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python2.7/csv.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="74" column="32" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2016.2/system/python_stubs/-1247972723/_csv.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="117" column="41" selection-start-line="117" selection-start-column="41" selection-end-line="117" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/corpus_pre_processor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="103" column="40" selection-start-line="103" selection-start-column="40" selection-end-line="103" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/settings_helper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="23" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/ferret_executer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/auto_process.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="519">
+          <caret line="124" column="59" selection-start-line="124" selection-start-column="59" selection-end-line="124" selection-end-column="59" />
           <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#47#59#0" expanded="true" />
-            <element signature="e#1254#1443#0" expanded="false" />
-            <element signature="e#1482#1653#0" expanded="false" />
-            <element signature="e#1714#1753#0" expanded="false" />
-            <element signature="e#1818#1848#0" expanded="false" />
-            <element signature="e#1906#1921#0" expanded="false" />
-            <element signature="e#2095#3425#0" expanded="false" />
-            <element signature="e#3472#3822#0" expanded="false" />
-            <element signature="e#3891#3940#0" expanded="false" />
-            <element signature="e#4110#4631#0" expanded="false" />
-            <element signature="e#4874#5746#0" expanded="false" />
-            <element signature="e#6582#6622#0" expanded="false" />
-            <element signature="e#6873#6946#0" expanded="false" />
-            <element signature="e#6880#6912#0" expanded="false" />
+            <element signature="e#0#37#0" expanded="true" />
+            <element signature="e#413#448#0" expanded="false" />
+            <element signature="e#2775#3550#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/corpus_splitter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
