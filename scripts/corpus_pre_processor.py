@@ -132,7 +132,7 @@ class PreProcessor(object):
 	# This function returns the words after the necessary replacements have taken place
 	def __get_words_after_replacements(self, max_similarities, first_sentence, second_sentence):
 		for uniqueWord, word, similarity, uniqueWordSynset, wordSynset in max_similarities:
-			if similarity > self.__settings['similarity_threshold']:
+			if float(similarity) > float(self.__settings['similarity_threshold']):
 				replacement = self.__get_replacement_word(uniqueWord, word, uniqueWordSynset, wordSynset)
 				first_sentence = self.__replace_word(uniqueWord, replacement, first_sentence)
 				second_sentence = self.__replace_word(word, replacement, second_sentence)

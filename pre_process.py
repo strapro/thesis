@@ -107,7 +107,7 @@ if __name__ == '__main__':
 	verbosity = 'verbose'
 	loop = True
 	force_overwrite = True
-	limit = 1000
+	limit = False
 	while loop:
 		selection = display_menu()
 		if selection == '1':  # Split corpus
