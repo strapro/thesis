@@ -166,7 +166,7 @@ class PreProcessor(object):
 
 		return syns
 
-	# This function returns the similarity between twn senses
+	# This function returns the similarity between two senses
 	def __get_similarity(self, sense1_name, sense2_name, similarity_measure):
 		key_name = sense1_name + '_' + sense2_name + '__' + similarity_measure
 		value = self.__redis.get(key_name)
