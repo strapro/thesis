@@ -7,23 +7,14 @@
     <script src="//code.highcharts.com/modules/exporting.js"></script>
 
     <script type="text/javascript">
-        function getQueryParams(qs) {
-            qs = qs.split('+').join(' ');
-
-            var params = {},
-                tokens,
-                re = /[?&]?([^=]+)=([^&]*)/g;
-
-            while (tokens = re.exec(qs)) {
-                params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
-            }
-
-            return params;
+        var jaccardThreshold = 0.1;
+        var similarityThreshold;
+        if(window.location.hash){
+            similarityThreshold = window.location.hash.replace('#', '');
+        } else {
+            similarityThreshold = 0.1;
         }
 
-        var query = getQueryParams(document.location.search);
-        var jaccardThreshold = 0.1;
-        var similarityThreshold = query.threshold || 0.1;
         var permittedTags = ['VERB', 'NOUN'];
 
         function drawChart(categories, series){
@@ -230,7 +221,8 @@
             });
 
             $('#select').val(similarityThreshold).on('change', function(){
-                window.location = window.location.href.split('?')[0] + '?threshold=' + $(this).val();
+                window.location = window.location.href.split('#')[0] + '#' + $(this).val();
+                location.reload();
             });
         });
     </script>
