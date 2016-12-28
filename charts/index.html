@@ -1,0 +1,268 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <script src="//code.jquery.com/jquery-3.1.1.js"></script>
+    <script src="//code.highcharts.com/highcharts.js"></script>
+    <script src="//code.highcharts.com/modules/exporting.js"></script>
+
+    <script type="text/javascript">
+        function getQueryParams(qs) {
+            qs = qs.split('+').join(' ');
+
+            var params = {},
+                tokens,
+                re = /[?&]?([^=]+)=([^&]*)/g;
+
+            while (tokens = re.exec(qs)) {
+                params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+            }
+
+            return params;
+        }
+
+        var query = getQueryParams(document.location.search);
+        var jaccardThreshold = 0.1;
+        var similarityThreshold = query.threshold || 0.1;
+        var permittedTags = ['VERB', 'NOUN'];
+
+        function drawChart(categories, series){
+            Highcharts.SVGRenderer.prototype.symbols.cross = function (x, y, w, h) {
+                return ['M', x, y, 'L', x + w, y + h, 'M', x + w, y, 'L', x, y + h, 'z'];
+            };
+            if (Highcharts.VMLRenderer) {
+                Highcharts.VMLRenderer.prototype.symbols.cross = Highcharts.SVGRenderer.prototype.symbols.cross;
+            }
+
+            Highcharts.chart('container', {
+                credits: {
+                    enabled: false
+                },
+                exporting: {
+                    enabled: false
+                },
+                chart: {
+                    type: 'scatter',
+                    zoomType: 'xy'
+                },
+                title:{
+                    text:''
+                },
+                legend: {
+                    itemWidth: 150,
+                    width: 150 * 6
+                },
+                xAxis: {
+                    categories: categories,
+                    alternateGridColor: 'rgba(180, 180, 180, .2)',
+                    title: {
+                        text: 'Permitted tags<br/>(Jaccard threshold: '+jaccardThreshold+', Simlarity threshold: '+similarityThreshold+')'
+                    }
+                },
+                yAxis: {
+                    title: {
+                        text: 'F-measure'
+                    }
+                },
+                series: series
+            });
+        }
+
+        function readCsv(data){
+            /*
+             0: remove_stop_words;
+             1: permitted_tags;
+             2: perform_ordering;
+             3: use_word_sense;
+             4: similarity_measure;
+             5: similarity_threshold;
+             6: type_of_replacement;
+             7: jaccard_threshold;
+             8: accuracy;
+             9: recall;
+             10: precision;
+             11: f_measure
+             */
+
+            var categories = [],
+                series = {
+                    jcn1: {
+                        name: 'jcn (ordered)',
+                        data: [],
+                        turboThreshold: 0
+                    },
+                    res1: {
+                        name: 'res (ordered)',
+                        data: [],
+                        turboThreshold: 0
+                    },
+                    lch1: {
+                        name: 'lch (ordered)',
+                        data: [],
+                        turboThreshold: 0
+                    },
+                    lin1: {
+                        name: 'lin (ordered)',
+                        data: [],
+                        turboThreshold: 0
+                    },
+                    path1: {
+                        name: 'path (ordered)',
+                        data: [],
+                        turboThreshold: 0
+                    },
+                    wup1: {
+                        name: 'wup (ordered)',
+                        data: [],
+                        turboThreshold: 0,
+                        marker: {
+                            symbol: 'cross',
+                            lineColor: null,
+                            lineWidth: 2
+                        }
+                    },
+
+
+                    jcn2: {
+                        name: 'jcn (not ordered)',
+                        data: [],
+                        turboThreshold: 0
+                    },
+                    res2: {
+                        name: 'res (not ordered)',
+                        data: [],
+                        turboThreshold: 0
+                    },
+                    lch2: {
+                        name: 'lch (not ordered)',
+                        data: [],
+                        turboThreshold: 0
+                    },
+                    lin2: {
+                        name: 'lin (not ordered)',
+                        data: [],
+                        turboThreshold: 0
+                    },
+                    path2: {
+                        name: 'path (not ordered)',
+                        data: [],
+                        turboThreshold: 0
+                    },
+                    wup2: {
+                        name: 'wup (not ordered)',
+                        data: [],
+                        turboThreshold: 0,
+                        marker: {
+                            symbol: 'cross',
+                            lineColor: null,
+                            lineWidth: 2
+                        }
+                    }
+                },
+                lines = data.split(/\r\n|\n/),
+                linesCount = lines.length,
+                columns = [];
+
+            for (var i = 1;i < linesCount - 1;i++){
+                columns = lines[i].split(';');
+                if(shouldKeep(columns)){
+                    var categoryIndex = -1;
+                    if(categories.indexOf(columns[1]) != -1){
+                        categoryIndex = categories.indexOf(columns[1]);
+                    } else {
+                        categories.push(columns[1]);
+                        categoryIndex = categories.length - 1;
+                    }
+
+                    var serieName = columns[4]
+
+                    serieName += (columns[2] === 'True') ? '1' : '2';
+
+                    series[serieName].data.push({
+                        x: categoryIndex,
+                        y: parseFloat(columns[11])
+                    })
+                }
+            }
+
+            var data = [];
+            data.push(series.jcn1);
+            data.push(series.res1);
+            data.push(series.lch1);
+            data.push(series.lin1);
+            data.push(series.path1);
+            data.push(series.wup1);
+
+            data.push(series.jcn2);
+            data.push(series.res2);
+            data.push(series.lch2);
+            data.push(series.lin2);
+            data.push(series.path2);
+            data.push(series.wup2);
+            return {
+                categories: categories,
+                series: data
+            };
+        }
+
+        function shouldKeep(columns)
+        {
+            var correctTags = true;
+            for(var i=0; i<permittedTags.length; i++){
+                if(columns[1].indexOf(permittedTags[i]) === -1){
+                    correctTags = false;
+                }
+            }
+
+            return parseFloat(columns[7]) == jaccardThreshold &&
+                parseFloat(columns[5]) == similarityThreshold &&
+                correctTags;
+        }
+
+        $(function () {
+            $.ajax({
+                type: "GET",
+                url: "auto_result.csv",
+                success: function(data) {
+                    var chartData = readCsv(data);
+                    drawChart(chartData.categories, chartData.series)
+                }
+            });
+
+            $('#select').val(similarityThreshold).on('change', function(){
+                window.location = window.location.href.split('?')[0] + '?threshold=' + $(this).val();
+            });
+        });
+    </script>
+
+    <style>
+        .title{
+            position:relative;
+        }
+        .title h3{
+            text-align: center;
+            font-family: Verdana;
+        }
+
+        .title select{
+            position: absolute;
+            top: 3px;
+            margin-left: 5px;
+            outline: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="title">
+    <h3>
+        Select threshold
+        <select id="select">
+            <option>0.1</option>
+            <option>0.5</option>
+            <option>0.9</option>
+        </select>
+    </h3>
+</div>
+<div id="container" style="height: 780px; margin: 0 auto"></div>
+</body>
+</html>
