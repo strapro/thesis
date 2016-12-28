@@ -42,3 +42,5 @@ The docker container contains a compiled from source executable of the Ferret pl
 For more information about the docker image you can visit [the docker hub page](https://hub.docker.com/r/strapro/thesis)
 
 For more information about the Ferret plagiarism checker tool you can visit [the project's github page](https://github.com/petercrlane/ferret)
+
+To view the charts generated from the results visit this [preview](http://htmlpreview.github.io/?https://github.com/strapro/thesis/blob/master/charts/index.html)
